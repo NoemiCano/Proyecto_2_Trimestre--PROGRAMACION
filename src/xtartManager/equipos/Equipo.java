@@ -1,4 +1,4 @@
 package xtartManager.equipos;
 
-public class Equipos {
+public class Equipo {
 }

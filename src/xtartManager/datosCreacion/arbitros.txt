@@ -1,0 +1,11 @@
+nombre;apellido;fechaNacimiento;idArbitro;tipo;nacionalidad;idSuperior
+Javier;Díaz;1968-11-29;1;PRINCIPAL;Países Bajos;0
+Pablo;Sánchez;1966-09-18;2;PRINCIPAL;Países Bajos;0
+Stefan;Schmidt;1979-11-26;3;PRINCIPAL;Portugal;0
+Javier;Gómez;1971-01-22;4;VAR;Argentina;2
+David;Gómez;1965-01-28;5;VAR;Inglaterra;3
+John;López;1965-04-19;6;VAR;Bélgica;1
+Javier;López;1994-12-05;7;ASISTENTE;Alemania;1
+José;Brown;1990-09-21;8;VAR;Francia;2
+Javier;Moreno;1980-05-29;9;VAR;Italia;3
+Markus;Weber;1979-02-22;10;ASISTENTE;Países Bajos;3

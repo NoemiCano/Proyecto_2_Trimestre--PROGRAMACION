@@ -1,4 +1,4 @@
-package xtartManager.metodos;
+package xtartManager.validacion;
 
 import java.util.Scanner;
 

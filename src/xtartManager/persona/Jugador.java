@@ -98,13 +98,12 @@ public class Jugador extends Persona {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "idJugador=" + idJugador +
-                ", dorsal=" + dorsal +
-                ", telefono=" + telefono +
-                ", posicion=" + posicion +
-                ", altura=" + altura +
-                ", equipo=" + equipo +
+        return "Jugador{" +
+                "id=" + idJugador +
+                ", nombre='" + getNombre() + " " + getApellido() + '\'' +
+                ", pos=" + posicion +
+                ", media=" + media +
+                ", equipo=" + (equipo != null ? equipo.getNombre() : "SIN_EQUIPO") +
                 '}';
     }
 

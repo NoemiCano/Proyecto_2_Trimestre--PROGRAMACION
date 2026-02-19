@@ -1,5 +1,6 @@
 package xtartManager.persona;
 
+import xtartManager.enums.Posicion;
 import xtartManager.equipos.Equipo;
 
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ public class Jugador extends Persona {
     private int idJugador;
     private int dorsal;
     private int telefono;
-    private String posicion;
+    private Posicion posicion;
     private double altura;
     private int media;
     private Equipo equipo;
@@ -18,7 +19,7 @@ public class Jugador extends Persona {
     public Jugador() {
     }
 
-    public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, int dorsal, int telefono, String posicion, double altura, int media) {
+    public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, int dorsal, int telefono, Posicion posicion, double altura, int media) {
         super(nombre, apellido, fechaNacimiento);
         this.idJugador = idJugador;
         this.dorsal = dorsal;
@@ -28,7 +29,7 @@ public class Jugador extends Persona {
         this.media = media;
     }
 
-    public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, Equipo equipo, double altura, String posicion, int telefono, int dorsal,int media) {
+    public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, Equipo equipo, double altura, Posicion posicion, int telefono, int dorsal,int media) {
         super(nombre, apellido, fechaNacimiento);
         this.idJugador = idJugador;
         this.equipo = equipo;
@@ -63,12 +64,20 @@ public class Jugador extends Persona {
         this.telefono = telefono;
     }
 
-    public String getPosicion() {
+    public Posicion getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(String posicion) {
+    public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
+    }
+
+    public int getMedia() {
+        return media;
+    }
+
+    public void setMedia(int media) {
+        this.media = media;
     }
 
     public double getAltura() {

@@ -1,5 +1,7 @@
 package xtartManager.gestionPersonal;
 
+import xtartManager.enums.Posicion;
+import xtartManager.enums.TipoArbitro;
 import xtartManager.persona.Arbitro;
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;
@@ -45,7 +47,7 @@ public class GestionPersonal {
                 int idJugador = Integer.parseInt(info[3].trim());
                 int dorsal = Integer.parseInt(info[4].trim());
                 int telefono = Integer.parseInt(info[5].trim());
-                String posicion = info[6].trim();
+                Posicion posicion = Posicion.valueOf(info[6].trim().toUpperCase());
                 double altura = Double.parseDouble(info[7].trim());
                 int media = Integer.parseInt(info[8].trim());
 
@@ -123,7 +125,7 @@ public class GestionPersonal {
                 String apellido = info[1].trim();
                 LocalDate fechaNacimiento = LocalDate.parse(info[2].trim());
                 int idArbitro = Integer.parseInt(info[3].trim());
-                String tipo = info[4].trim();
+                TipoArbitro tipo = TipoArbitro.valueOf(info[4].trim().toUpperCase());
                 String nacionalidad = info[5].trim();
                 int idSuperior = Integer.parseInt(info[6].trim());
 

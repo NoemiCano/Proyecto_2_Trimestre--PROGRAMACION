@@ -1,19 +1,21 @@
 package xtartManager.persona;
 
+import xtartManager.enums.TipoArbitro;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Arbitro extends Persona {
 
     private int idArbitro;
-    private String tipo;
+    private TipoArbitro tipo;
     private String nacionalidad;
     private int idSuperior;
 
     public Arbitro() {
     }
 
-    public Arbitro(String nombre, String apellido, LocalDate fechaNacimiento, int idArbitro, String tipo, String nacionalidad, int idSuperior) {
+    public Arbitro(String nombre, String apellido, LocalDate fechaNacimiento, int idArbitro, TipoArbitro tipo, String nacionalidad, int idSuperior) {
         super(nombre, apellido, fechaNacimiento);
         this.idArbitro = idArbitro;
         this.tipo = tipo;
@@ -29,11 +31,11 @@ public class Arbitro extends Persona {
         this.idArbitro = idArbitro;
     }
 
-    public String getTipo() {
+    public TipoArbitro getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoArbitro tipo) {
         this.tipo = tipo;
     }
 

@@ -1,4 +1,4 @@
 package xtartManager.competiciones.clasificacion;
 
-public class clasificacionJugadores {
+public class ClasificacionJugadores {
 }

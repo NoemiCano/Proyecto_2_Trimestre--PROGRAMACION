@@ -1,0 +1,31 @@
+idEstadio;nombre;capacidadEstadio;ciudad;codidoPostal;anioFundacion;direccion;tipoCesped
+1;Campo del Norte Sevilla;75085;Sevilla;41082;2010-01-01;Calle Mayor 227;NATURAL
+2;Stadium del Sur Toledo;80949;Toledo;45053;2000-01-01;Calle del Sol 141;ARTIFICIAL
+3;Parque del Sur Girona;65815;Girona;17030;1900-01-01;Calle del Sol 21;NATURAL
+4;Estadio del Mar Valladolid;9505;Valladolid;47087;1962-01-01;Camino del Puerto 81;NATURAL
+5;Campo Nuevo Palma;54745;Palma;7048;1995-01-01;Avenida de Europa 164;NATURAL
+6;Campo Municipal Cádiz;81066;Cádiz;11068;1937-01-01;Calle del Olivo 118;NATURAL
+7;Stadium de la Ciudad Toledo;11242;Toledo;45090;1947-01-01;Paseo del Parque 119;HIBRIDO
+8;Parque del Sur Valencia;80672;Valencia;46063;2011-01-01;Calle Mayor 109;ARTIFICIAL
+9;Stadium del Mar Tarragona;60186;Tarragona;43067;1933-01-01;Paseo de los Jardines 108;ARTIFICIAL
+10;Parque del Norte Albacete;75893;Albacete;2003;1973-01-01;Avenida de la Victoria 197;NATURAL
+11;Estadio del Norte Burgos;21444;Burgos;9091;1979-01-01;Avenida del Estadio 121;NATURAL
+12;Arena Municipal Córdoba;90138;Córdoba;14089;1958-01-01;Camino del Puerto 121;ARTIFICIAL
+13;Stadium de la Ciudad Albacete;81373;Albacete;2051;1985-01-01;Calle del Olivo 141;ARTIFICIAL
+14;Parque Olímpico Gijón;64762;Gijón;33025;1937-01-01;Paseo de los Jardines 69;NATURAL
+15;Arena del Sur Barcelona;68060;Barcelona;8066;1962-01-01;Paseo del Parque 236;NATURAL
+16;Parque del Mar San Sebastián;75012;San Sebastián;20098;2005-01-01;Calle de la Constitución 207;HIBRIDO
+17;Estadio de la Ciudad Oviedo;49504;Oviedo;33058;2003-01-01;Calle Mayor 113;ARTIFICIAL
+18;Stadium de la Ciudad Almería;67365;Almería;40023;1954-01-01;Paseo de los Jardines 187;HIBRIDO
+19;Campo del Mar Valencia;56513;Valencia;46012;1924-01-01;Avenida de la Paz 220;HIBRIDO
+20;Parque Central Bilbao;20080;Bilbao;48000;1957-01-01;Calle del Sol 140;NATURAL
+21;Arena del Río Pamplona;23835;Pamplona;31079;1905-01-01;Calle de la Luna 140;HIBRIDO
+22;Campo Metropolitano Leganés;8672;Leganés;28950;1985-01-01;Calle del Sol 148;HIBRIDO
+23;Arena del Norte Almería;37219;Almería;40060;1975-01-01;Paseo de la Estrella 246;ARTIFICIAL
+24;Estadio Olímpico Toledo;28987;Toledo;45017;2000-01-01;Calle de la Luna 235;ARTIFICIAL
+25;Stadium Olímpico Valladolid;59171;Valladolid;47019;1966-01-01;Calle de la Luna 51;HIBRIDO
+26;Estadio Olímpico Madrid;17625;Madrid;28006;2006-01-01;Paseo del Parque 166;HIBRIDO
+27;Estadio Central Albacete;74897;Albacete;2060;1941-01-01;Camino del Puerto 78;HIBRIDO
+28;Estadio del Mar A Coruña;69155;A Coruña;15073;1979-01-01;Calle de la Luna 44;NATURAL
+29;Stadium del Río Santander;64833;Santander;39079;1943-01-01;Calle de la Constitución 154;NATURAL
+30;Estadio del Norte Leganés;60318;Leganés;28914;1925-01-01;Camino del Puerto 236;NATURAL

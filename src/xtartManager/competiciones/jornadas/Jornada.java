@@ -1,4 +1,4 @@
 package xtartManager.competiciones.jornadas;
 
-public class Jornadas {
+public class Jornada {
 }

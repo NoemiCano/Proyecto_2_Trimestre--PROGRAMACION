@@ -1,0 +1,31 @@
+idEquipo;nombre;ciudad;codigoPostal;anioFundacion
+1;Real Madrid;Madrid;28000;1902-01-01
+2;FC Barcelona;Barcelona;8000;1899-01-01
+3;Atlético de Madrid;Madrid;28000;1903-01-01
+4;Sevilla FC;Sevilla;41000;1890-01-01
+5;Valencia CF;Valencia;46000;1919-01-01
+6;Real Betis;Sevilla;41000;1907-01-01
+7;Villarreal CF;Villarreal;12500;1923-01-01
+8;Real Sociedad;San Sebastián;20000;1909-01-01
+9;Athletic Club;Bilbao;48000;1898-01-01
+10;Celta de Vigo;Vigo;36200;1923-01-01
+11;Manchester City;Manchester;1000;1880-01-01
+12;Manchester United;Manchester;1000;1878-01-01
+13;Liverpool;Liverpool;1000;1892-01-01
+14;Arsenal;London;1000;1886-01-01
+15;Chelsea;London;1000;1905-01-01
+16;Tottenham Hotspur;London;1000;1882-01-01
+17;Newcastle United;Newcastle;1000;1892-01-01
+18;Aston Villa;Birmingham;1000;1874-01-01
+19;West Ham United;London;1000;1895-01-01
+20;Everton;Liverpool;1000;1878-01-01
+21;Bayern München;Munich;80000;1900-01-01
+22;Borussia Dortmund;Dortmund;44100;1909-01-01
+23;RB Leipzig;Leipzig;4100;2009-01-01
+24;Bayer Leverkusen;Leverkusen;51300;1904-01-01
+25;Eintracht Frankfurt;Frankfurt;60000;1899-01-01
+26;VfB Stuttgart;Stuttgart;70100;1893-01-01
+27;Borussia Mönchengladbach;Mönchengladbach;41000;1900-01-01
+28;Werder Bremen;Bremen;28100;1899-01-01
+29;Hamburger SV;Hamburg;20000;1887-01-01
+30;Schalke 04;Gelsenkirchen;45800;1904-01-01

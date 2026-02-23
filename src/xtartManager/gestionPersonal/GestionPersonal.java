@@ -77,7 +77,7 @@ public class GestionPersonal {
             Path ruta = Path.of("src/xtartManager/datosCreacion/entrenadores.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
-            for (int i = 1; i < lineas.size(); i++) { // saltar cabecera
+            for (int i = 1; i < lineas.size(); i++) {
                 String linea = lineas.get(i);
                 if (linea == null || linea.isBlank()) continue;
 
@@ -114,7 +114,7 @@ public class GestionPersonal {
             Path ruta = Path.of("src/xtartManager/datosCreacion/arbitros.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
-            for (int i = 1; i < lineas.size(); i++) { // saltar cabecera
+            for (int i = 1; i < lineas.size(); i++) {
                 String linea = lineas.get(i);
                 if (linea == null || linea.isBlank()) continue;
 

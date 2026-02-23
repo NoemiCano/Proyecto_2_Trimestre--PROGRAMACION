@@ -5,6 +5,7 @@ import xtartManager.equipos.GestionEquipos;
 import xtartManager.gestionPersonal.GestionPersonal;
 import xtartManager.persona.Jugador;
 import xtartManager.tienda.Tienda;
+import java.util.List;
 
 public class Inicio {
 
@@ -17,6 +18,7 @@ public class Inicio {
         GestionEquipos.asignarEstadiosUnicos();
         GestionEquipos.asignarEntrenadoresUnicos();
         GestionEquipos.repartirOnce442SinLeyendas();
+        GestionEquipos.inicializarListasCompeticiones();
         tienda.inicializarLeyendas();
 
 
@@ -26,7 +28,9 @@ public class Inicio {
         System.out.println("Entrenadores: " + GestionPersonal.getEntrenadores().size());
         System.out.println("Árbitros: " + GestionPersonal.getArbitros().size());
         System.out.println("Estadios: " +GestionEquipos.getEstadios().size());
-        System.out.println("Equipos: " +GestionEquipos.getEquipos().size());
+        System.out.println("Equipos Liga Española: " + GestionEquipos.getEquiposLigaEspañola().size());
+        System.out.println("Equipos Copa del Rey: " + GestionEquipos.getEquiposCopaDelRey().size());
+        System.out.println("Equipos Supercopa: " + GestionEquipos.getEquiposSuperCopa().size());
 
 
     }
@@ -81,6 +85,29 @@ public class Inicio {
 
         System.out.println("Total: " + tienda.getJugadoresEnVenta().size());
         System.out.println("==========================================");
+    }
+
+    private static void mostrarEquiposCompeticion(String nombre, List<Equipo> lista) {
+        System.out.println("=========== " + nombre.toUpperCase() + " ===========");
+
+        int i = 1;
+        for (Equipo e : lista) {
+          
+            System.out.println(i + ". " + e.getNombre());
+            i++;
+        }
+
+        System.out.println("Total: " + lista.size());
+        System.out.println("======================================");
+    }
+
+    public static void mostrarEquiposPorCompeticiones() {
+
+        GestionEquipos.inicializarListasCompeticiones();
+
+        mostrarEquiposCompeticion("Liga Española", GestionEquipos.getEquiposLigaEspañola());
+        mostrarEquiposCompeticion("Copa del Rey", GestionEquipos.getEquiposCopaDelRey());
+        mostrarEquiposCompeticion("Supercopa", GestionEquipos.getEquiposSuperCopa());
     }
 
 }

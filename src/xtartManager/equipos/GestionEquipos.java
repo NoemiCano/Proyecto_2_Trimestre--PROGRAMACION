@@ -15,13 +15,22 @@ import java.util.Random;
 
 public class GestionEquipos {
 
+
     protected static final List<Equipo> equipos = new ArrayList<>();
+
+
+    protected static final List<Equipo> equiposCopaDelRey = new ArrayList<>();
+    protected static final List<Equipo> equiposSuperCopa = new ArrayList<>();
+    protected static final List<Equipo> equiposLigaEspañola = new ArrayList<>();
+
     protected static final List<Estadio> estadios = new ArrayList<>();
     private static final Random rnd = new Random();
 
     private static boolean cargadoEquipos = false;
     private static boolean cargadoEstadios = false;
 
+
+    private static boolean cargadasCompeticiones = false;
 
     public static void cargarEquiposDesdeTxt() {
         if (cargadoEquipos) return;
@@ -60,7 +69,7 @@ public class GestionEquipos {
             Path ruta = Path.of("src/xtartManager/datosCreacion/estadios.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
-            for (int i = 1; i < lineas.size(); i++) { // saltar cabecera
+            for (int i = 1; i < lineas.size(); i++) {
                 String linea = lineas.get(i);
                 if (linea == null || linea.isBlank()) continue;
 
@@ -90,6 +99,7 @@ public class GestionEquipos {
         }
     }
 
+
     public static List<Equipo> getEquipos() {
         return equipos;
     }
@@ -99,6 +109,57 @@ public class GestionEquipos {
     }
 
 
+    public static List<Equipo> getEquiposCopaDelRey() {
+        if (!cargadasCompeticiones) inicializarListasCompeticiones();
+        return equiposCopaDelRey;
+    }
+
+    public static List<Equipo> getEquiposSuperCopa() {
+        if (!cargadasCompeticiones) inicializarListasCompeticiones();
+        return equiposSuperCopa;
+    }
+
+    public static List<Equipo> getEquiposLigaEspañola() {
+        if (!cargadasCompeticiones) inicializarListasCompeticiones();
+        return equiposLigaEspañola;
+    }
+
+
+    public static void inicializarListasCompeticiones() {
+        if (!cargadoEquipos) cargarEquiposDesdeTxt();
+        if (cargadasCompeticiones) return;
+
+        equiposLigaEspañola.clear();
+        equiposCopaDelRey.clear();
+        equiposSuperCopa.clear();
+
+        int porCompeticion = 10;
+        int necesarios = porCompeticion * 3;
+
+        if (equipos.size() < necesarios) {
+            throw new RuntimeException("No hay suficientes equipos para repartir " + porCompeticion +
+                    " por competición. Necesarios: " + necesarios + " | Disponibles: " + equipos.size());
+        }
+
+
+        int idx = 0;
+
+        for (int i = 0; i < porCompeticion; i++) {
+            equiposLigaEspañola.add(equipos.get(idx++));
+        }
+        for (int i = 0; i < porCompeticion; i++) {
+            equiposCopaDelRey.add(equipos.get(idx++));
+        }
+        for (int i = 0; i < porCompeticion; i++) {
+            equiposSuperCopa.add(equipos.get(idx++));
+        }
+
+        System.out.println("Lista de equipos Liga Española creada (" + equiposLigaEspañola.size() + " equipos).");
+        System.out.println("Lista de equipos Copa del Rey creada (" + equiposCopaDelRey.size() + " equipos).");
+        System.out.println("Lista de equipos Supercopa creada (" + equiposSuperCopa.size() + " equipos).");
+
+        cargadasCompeticiones = true;
+    }
 
     public static void asignarEstadiosUnicos() {
         if (!cargadoEquipos) cargarEquiposDesdeTxt();
@@ -136,7 +197,6 @@ public class GestionEquipos {
             elegido.setEquipo(eq);
         }
     }
-
 
     public static void repartirOnce442SinLeyendas() {
         if (!cargadoEquipos) cargarEquiposDesdeTxt();

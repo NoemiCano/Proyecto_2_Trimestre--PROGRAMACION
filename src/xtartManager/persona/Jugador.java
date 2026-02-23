@@ -1,10 +1,8 @@
 package xtartManager.persona;
 
-import xtartManager.enums.Posicion;
 import xtartManager.equipos.Equipo;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Jugador extends Persona {
 
@@ -94,6 +92,9 @@ public class Jugador extends Persona {
 
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
+    }
+    public void hablar(){
+        System.out.println("Hola,gracias por ficharme");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package xtartManager.equipos;
 
-import xtartManager.enums.Posicion;
+import xtartManager.persona.Posicion;
 import xtartManager.gestionPersonal.GestionPersonal;
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;
@@ -112,7 +112,7 @@ public class GestionEquipos {
 
         for (Equipo eq : equipos) {
             int idx = rnd.nextInt(disponibles.size());
-            Estadio elegido = disponibles.remove(idx); // remove => no se repite
+            Estadio elegido = disponibles.remove(idx);
             eq.setEstadio(elegido);
         }
     }

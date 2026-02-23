@@ -1,4 +1,4 @@
-package xtartManager.enums;
+package xtartManager.persona;
 
 public enum Posicion {
     PORTERO,

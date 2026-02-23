@@ -1,9 +1,6 @@
 package xtartManager.persona;
 
-import xtartManager.enums.TipoArbitro;
-
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Arbitro extends Persona {
 
@@ -53,6 +50,10 @@ public class Arbitro extends Persona {
 
     public void setIdSuperior(int idSuperior) {
         this.idSuperior = idSuperior;
+    }
+
+    public void hablar(){
+        System.out.println("¡Suerte a ambos equipos!");
     }
 
     @Override

@@ -42,6 +42,8 @@ public abstract class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public abstract void hablar();
+
     @Override
     public String toString() {
         return "nombre='" + nombre + '\'' +

@@ -52,6 +52,10 @@ public class Entrenador extends Persona {
         this.equipo = equipo;
     }
 
+    public void hablar(){
+        System.out.println("¡Vamos equipo!");
+    }
+
     @Override
     public String toString() {
         return super.toString() +

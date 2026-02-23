@@ -1,7 +1,7 @@
 package xtartManager.gestionPersonal;
 
-import xtartManager.enums.Posicion;
-import xtartManager.enums.TipoArbitro;
+import xtartManager.persona.Posicion;
+import xtartManager.persona.TipoArbitro;
 import xtartManager.persona.Arbitro;
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;

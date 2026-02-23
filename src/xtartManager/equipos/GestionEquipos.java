@@ -142,27 +142,16 @@ public class GestionEquipos {
         }
 
 
-        List<Equipo> disponibles = new ArrayList<>(equipos);
-
-
-        for (int i = disponibles.size() - 1; i > 0; i--) {
-            int j = rnd.nextInt(i + 1);
-            Equipo tmp = disponibles.get(i);
-            disponibles.set(i, disponibles.get(j));
-            disponibles.set(j, tmp);
-        }
-
+        int idx = 0;
 
         for (int i = 0; i < porCompeticion; i++) {
-            equiposLigaEspañola.add(disponibles.remove(0));
+            equiposLigaEspañola.add(equipos.get(idx++));
         }
-
         for (int i = 0; i < porCompeticion; i++) {
-            equiposCopaDelRey.add(disponibles.remove(0));
+            equiposCopaDelRey.add(equipos.get(idx++));
         }
-
         for (int i = 0; i < porCompeticion; i++) {
-            equiposSuperCopa.add(disponibles.remove(0));
+            equiposSuperCopa.add(equipos.get(idx++));
         }
 
         System.out.println("Lista de equipos Liga Española creada (" + equiposLigaEspañola.size() + " equipos).");

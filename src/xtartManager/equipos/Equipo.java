@@ -2,6 +2,7 @@ package xtartManager.equipos;
 
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;
+import xtartManager.persona.Posicion;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -122,6 +123,20 @@ public class Equipo {
             return true;
         }
         return false;
+    }
+
+    public double calcularFuerzaAtaque(){
+        double sumaAtaque = 0;
+        int contadorDelanteros = 0;
+
+        for (Jugador j : this.jugadores){
+            if (j.getPosicion() == Posicion.DELANTERO){
+                sumaAtaque += j.getMedia();
+                contadorDelanteros++;
+            }
+        }
+
+        return (contadorDelanteros > 0) ? (sumaAtaque / contadorDelanteros) : 40.0;
     }
 
     @Override

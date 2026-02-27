@@ -1,4 +1,4 @@
-package xtartManager.competiciones.jornadas;
+package xtartManager.modelo.competicion;
 
 import java.util.ArrayList;
 import java.util.List;

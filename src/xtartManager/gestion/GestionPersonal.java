@@ -1,10 +1,10 @@
-package xtartManager.gestionPersonal;
+package xtartManager.gestion;
 
-import xtartManager.persona.Posicion;
-import xtartManager.persona.TipoArbitro;
-import xtartManager.persona.Arbitro;
-import xtartManager.persona.Entrenador;
-import xtartManager.persona.Jugador;
+import xtartManager.modelo.persona.Posicion;
+import xtartManager.modelo.persona.TipoArbitro;
+import xtartManager.modelo.persona.Arbitro;
+import xtartManager.modelo.persona.Entrenador;
+import xtartManager.modelo.persona.Jugador;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

@@ -1,10 +1,6 @@
 package xtartManager;
 
-import xtartManager.competiciones.jornadas.Partido;
-import xtartManager.inicio.Inicio;
-
-
-import java.util.List;
+import xtartManager.interfaz.Inicio;
 
 public class Main {
 

@@ -1,9 +1,10 @@
-package xtartManager.equipos;
+package xtartManager.gestion;
 
-import xtartManager.persona.Posicion;
-import xtartManager.gestionPersonal.GestionPersonal;
-import xtartManager.persona.Entrenador;
-import xtartManager.persona.Jugador;
+import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.equipos.Estadio;
+import xtartManager.modelo.persona.Posicion;
+import xtartManager.modelo.persona.Entrenador;
+import xtartManager.modelo.persona.Jugador;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

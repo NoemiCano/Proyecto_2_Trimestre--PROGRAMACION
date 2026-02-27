@@ -1,10 +1,10 @@
-package xtartManager.equipos;
+package xtartManager.modelo.equipos;
 
-import xtartManager.competiciones.clasificacion.ClasificacionEquipos;
-import xtartManager.persona.Entrenador;
-import xtartManager.persona.Jugador;
-import xtartManager.persona.Persona;
-import xtartManager.persona.Posicion;
+import xtartManager.clasificaciones.ClasificacionEquipos;
+import xtartManager.modelo.persona.Entrenador;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.persona.Persona;
+import xtartManager.modelo.persona.Posicion;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

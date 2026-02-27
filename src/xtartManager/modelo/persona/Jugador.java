@@ -1,6 +1,6 @@
-package xtartManager.persona;
+package xtartManager.modelo.persona;
 
-import xtartManager.equipos.Equipo;
+import xtartManager.modelo.equipos.Equipo;
 
 import java.time.LocalDate;
 

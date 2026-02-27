@@ -1,8 +1,7 @@
-package xtartManager.tienda;
+package xtartManager.gestion;
 
-import xtartManager.gestionPersonal.GestionPersonal;
-import xtartManager.persona.Jugador;
-import xtartManager.equipos.Equipo;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.equipos.Equipo;
 
 import java.util.ArrayList;
 import java.util.List;

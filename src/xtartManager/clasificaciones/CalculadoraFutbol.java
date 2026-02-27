@@ -1,4 +1,4 @@
-package xtartManager.competiciones.clasificacion;
+package xtartManager.clasificaciones;
 
 public final class CalculadoraFutbol {
 

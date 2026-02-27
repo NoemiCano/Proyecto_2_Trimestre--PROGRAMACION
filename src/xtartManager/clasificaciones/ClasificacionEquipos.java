@@ -1,6 +1,4 @@
-package xtartManager.competiciones.clasificacion;
-
-import java.util.Objects;
+package xtartManager.clasificaciones;
 
 public class ClasificacionEquipos {
     private int puntos;

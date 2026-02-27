@@ -1,4 +1,4 @@
-package xtartManager.persona;
+package xtartManager.modelo.persona;
 
 import java.time.LocalDate;
 import java.util.Objects;

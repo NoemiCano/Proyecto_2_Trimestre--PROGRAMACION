@@ -1,12 +1,9 @@
-package xtartManager.competiciones.ligas;
+package xtartManager.modelo.competicion;
 
-import xtartManager.competiciones.jornadas.Jornada;
-import xtartManager.competiciones.jornadas.Partido;
-import xtartManager.equipos.Equipo;
+import xtartManager.modelo.equipos.Equipo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class Liga {

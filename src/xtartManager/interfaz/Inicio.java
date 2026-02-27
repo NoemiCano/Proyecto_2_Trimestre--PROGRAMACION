@@ -1,10 +1,10 @@
-package xtartManager.inicio;
+package xtartManager.interfaz;
 
-import xtartManager.equipos.Equipo;
-import xtartManager.equipos.GestionEquipos;
-import xtartManager.gestionPersonal.GestionPersonal;
-import xtartManager.persona.Jugador;
-import xtartManager.tienda.Tienda;
+import xtartManager.modelo.equipos.Equipo;
+import xtartManager.gestion.GestionEquipos;
+import xtartManager.gestion.GestionPersonal;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.gestion.Tienda;
 import java.util.List;
 
 public class Inicio {

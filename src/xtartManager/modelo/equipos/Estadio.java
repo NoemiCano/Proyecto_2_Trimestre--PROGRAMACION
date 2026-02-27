@@ -1,7 +1,6 @@
-package xtartManager.equipos;
+package xtartManager.modelo.equipos;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Estadio {
 

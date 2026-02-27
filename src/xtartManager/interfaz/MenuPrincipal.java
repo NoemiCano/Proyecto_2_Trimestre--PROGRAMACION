@@ -25,118 +25,149 @@ public class MenuPrincipal {
 
         int opcion = 0;
 
-        System.out.println("¡Bienvenido a Xtart Manager!");
-        System.out.println("1. Ver Equipos y Jugadores");
-        System.out.println("2. Jugar una Liga.");
+        do {
+            System.out.println("¡Bienvenido a Xtart Manager! ");
+            System.out.println("1. Ver Equipos y Jugadores. ");
+            System.out.println("2. Jugar una Liga. ");
+            System.out.println("3. Ir a la Tienda. ");
+            System.out.println("4. Salir. ");
 
-        opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 3);
+            opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 3);
 
-        if(opcion == 1){
-            Inicio.iniciar();
-        }else if(opcion == 2){
-            menuLigas();
-        }
+            switch (opcion) {
+                case 1 -> Inicio.mostrarResumen();
+                case 2 -> menuLigas();
+                case 3 -> Inicio.mostrarLeyendasTienda();
+                case 4 -> {
+                    System.out.println("Saliendo del juego...");
+                    System.exit(0);
+                }
+                default-> System.out.println("Opción inválida, inténtalo de nuevo");
+            }
+        } while (opcion != 4);
     }
 
     public void menuLigas(){
 
-        int opcion, opcion2 = 0;
+        int opcion= 0;
 
         do{
 
         System.out.println("1. Copa del Rey");
         System.out.println("2. Supercopa");
         System.out.println("3. Liga Española");
-        System.out.println("4. Volver");
+        System.out.println("4. Volver al menú principal");
 
-        opcion = Errores.comprobar(sc, "¿Qué liga deseas jugar?", 1, 4);
+        opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 4);
 
-
-
-        if(opcion == 1){
-
-            if(!copaReyJugada){
-
-                copaRey = new Liga("Copa del Rey", temporadaActual, GestionEquipos.getEquiposCopaDelRey());
-                copaReyJugada = true;
-                ligasJugadas++;
-                copaRey.calendario(GestionEquipos.getEquiposCopaDelRey());
-
-                System.out.println("1. Jugar todas las Jornadas.");
-                System.out.println("2. Ver el resultado de la Copa del Rey " + temporadaActual);
-                opcion2 = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
-                if(opcion2 == 1){
-                    copaRey.jugarJornada();
-
-                }else if(opcion2 == 2){
-                    copaRey.jugarCalendario();
-
+            switch (opcion) {
+                case 1 -> menuCopa();
+                case 2 -> menuSupercopa();
+                case 3 -> menuLigaSpain();
+                case 4 -> {
+                    System.out.println("Volviendo al menú principal...");
+                    break;
                 }
-            }else {
-                System.out.println("Esta liga ya ha sido jugada esta temporada.");
-                menuLigas();
+                default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
+        }while (opcion != 4);
+    }
 
-            comprobarTemporada();
+    public void menuCopa(){
 
-        }else if(opcion == 2){
+        int opcion= 0;
 
-            if(!supercopaJugada){
+        if(!copaReyJugada){
 
-                supercopa = new Liga("Supercopa", temporadaActual, GestionEquipos.getEquiposSuperCopa());
-                supercopaJugada = true;
-                ligasJugadas++;
-                supercopa.calendario(GestionEquipos.getEquiposSuperCopa());
+            copaRey = new Liga("Copa del Rey", temporadaActual, GestionEquipos.getEquiposCopaDelRey());
+            copaReyJugada = true;
+            ligasJugadas++;
+            copaRey.calendario(GestionEquipos.getEquiposCopaDelRey());
 
-                System.out.println("1. Jugar todas las Jornadas.");
-                System.out.println("2. Ver el resultado de la Supercopa " + temporadaActual);
-                opcion2 = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
-                if(opcion2 == 1){
-                    supercopa.jugarJornada();
+            System.out.println("1. Jugar todas las Jornadas.");
+            System.out.println("2. Ver el resultado de la Copa del Rey " + temporadaActual);
+            opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
+            if(opcion == 1){
+                copaRey.jugarJornada();
 
-                }else if(opcion2 == 2){
-                    supercopa.jugarCalendario();
+            }else if(opcion == 2){
+                copaRey.jugarCalendario();
 
-                }
-
-            }else {
-                System.out.println("Esta liga ya ha sido jugada esta temporada.");
-                menuLigas();
             }
-
-            comprobarTemporada();
-
-        }else if(opcion == 3){
-
-            if(!ligaSpainJugada){
-                ligaSpain = new Liga("Liga Española", temporadaActual, GestionEquipos.getEquiposLigaSpain());
-                ligaSpainJugada = true;
-                ligasJugadas++;
-                ligaSpain.calendario(GestionEquipos.getEquiposLigaSpain());
-
-                System.out.println("1. Jugar todas las Jornadas.");
-                System.out.println("2. Ver el resultado de la Supercopa " + temporadaActual);
-                opcion2 = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
-                if(opcion2 == 1){
-                    ligaSpain.jugarJornada();
-
-                }else if(opcion2 == 2){
-                    ligaSpain.jugarCalendario();
-
-                }
-
-            }else {
-                System.out.println("Esta liga ya ha sido jugada esta temporada.");
-                menuLigas();
-            }
-
-            comprobarTemporada();
+        }else {
+            System.out.println("Esta liga ya ha sido jugada esta temporada.");
+            menuLigas();
         }
 
-        }while (opcion != 4);
+        comprobarTemporada();
 
     }
 
+    public void menuSupercopa(){
+
+        int opcion= 0;
+
+        if(!supercopaJugada){
+
+            supercopa = new Liga("Supercopa", temporadaActual, GestionEquipos.getEquiposSuperCopa());
+            supercopaJugada = true;
+            ligasJugadas++;
+            supercopa.calendario(GestionEquipos.getEquiposSuperCopa());
+
+            System.out.println("1. Jugar todas las Jornadas.");
+            System.out.println("2. Ver el resultado de la Supercopa " + temporadaActual);
+            opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
+            if(opcion == 1){
+                supercopa.jugarJornada();
+
+            }else if(opcion == 2){
+                supercopa.jugarCalendario();
+
+            }
+
+        }else {
+            System.out.println("Esta liga ya ha sido jugada esta temporada.");
+            menuLigas();
+        }
+
+        comprobarTemporada();
+    }
+
+    public void menuLigaSpain(){
+
+        int opcion= 0;
+
+        if(!ligaSpainJugada){
+            ligaSpain = new Liga("Liga Española", temporadaActual, GestionEquipos.getEquiposLigaSpain());
+            ligaSpainJugada = true;
+            ligasJugadas++;
+            ligaSpain.calendario(GestionEquipos.getEquiposLigaSpain());
+
+            System.out.println("1. Jugar todas las Jornadas.");
+            System.out.println("2. Ver el resultado de la Supercopa " + temporadaActual);
+            opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 2);
+            if(opcion == 1){
+                ligaSpain.jugarJornada();
+
+            }else if(opcion == 2){
+                ligaSpain.jugarCalendario();
+
+            }
+
+        }else {
+            System.out.println("Esta liga ya ha sido jugada esta temporada.");
+            menuLigas();
+        }
+
+        comprobarTemporada();
+
+    }
+
+    public void menuTienda(){
+
+        int opcion= 0;
+
+    }
 
     //region TEMPORADAS
 

@@ -1,9 +1,9 @@
-package xtartManager.competiciones.jornadas;
+package xtartManager.modelo.competicion;
 
-import xtartManager.competiciones.clasificacion.CalculadoraFutbol;
-import xtartManager.equipos.Equipo;
-import xtartManager.persona.Jugador;
-import xtartManager.persona.Persona;
+import xtartManager.clasificaciones.CalculadoraFutbol;
+import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.persona.Persona;
 
 import java.util.Objects;
 

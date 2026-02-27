@@ -23,6 +23,7 @@ public class Equipo {
 //    private List<Jugador> jugadores;
     private ClasificacionEquipos clasificacion;
     private List<Persona> staff;
+    private double presupuesto = 0;
 
     public Equipo() {
     }
@@ -111,6 +112,14 @@ public class Equipo {
         this.clasificacion = clasificacion;
     }
 
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(double presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+
     // endregion
 
     public boolean ficharJugador(Jugador j) {
@@ -171,6 +180,10 @@ public class Equipo {
             }
         }
         return null;
+    }
+
+    public void ingresarDinero(double cantidad){
+        this.presupuesto += cantidad;
     }
 
     @Override

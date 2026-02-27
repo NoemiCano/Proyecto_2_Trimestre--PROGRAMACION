@@ -14,6 +14,8 @@ public class Jugador extends Persona {
     private int media;
     private Equipo equipo;
     private int golesMarcados = 0;
+    private int tarjetasAmarillas = 0;
+    private int tarjetasRojas = 0;
 
     public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, int dorsal, int telefono, Posicion posicion, double altura, int media) {
         super(nombre, apellido, fechaNacimiento);
@@ -100,12 +102,43 @@ public class Jugador extends Persona {
         this.golesMarcados = golesMarcados;
     }
 
+    public int getTarjetasAmarillas() {
+        return tarjetasAmarillas;
+    }
+
+    public void setTarjetasAmarillas(int tarjetasAmarillas) {
+        this.tarjetasAmarillas = tarjetasAmarillas;
+    }
+
+    public int getTarjetasRojas() {
+        return tarjetasRojas;
+    }
+
+    public void setTarjetasRojas(int tarjetasRojas) {
+        this.tarjetasRojas = tarjetasRojas;
+    }
+
     public void hablar(){
         System.out.println("Hola,gracias por ficharme");
     }
 
     public void sumarGoles(int cantidad) {
         this.golesMarcados += cantidad;
+    }
+
+    public void actualizarMediaSegunResultado(int puntos) {
+        final int MEDIA_MAXIMA = 99;
+        final int MEDIA_MINIMA = 10;
+
+        if (puntos == 3) {
+            if (this.media < MEDIA_MAXIMA) {
+                this.media++;
+            }
+        } else if (puntos == 0) {
+            if (this.media > MEDIA_MINIMA) {
+                this.media--;
+            }
+        }
     }
 
     @Override

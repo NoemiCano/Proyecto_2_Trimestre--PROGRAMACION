@@ -41,6 +41,8 @@ public class Equipo {
         this.jugadores = new ArrayList<>();
     }
 
+    // region GETTER & SETTER
+
     public int getIdEquipo() {
         return idEquipo;
     }
@@ -104,6 +106,8 @@ public class Equipo {
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
+
+    // endregion
 
     public boolean ficharJugador(Jugador j) {
         if (j.getEquipo() != null) return false;

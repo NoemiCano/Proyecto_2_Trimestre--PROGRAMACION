@@ -93,6 +93,7 @@ public class Jugador extends Persona {
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
+
     public void hablar(){
         System.out.println("Hola,gracias por ficharme");
     }

@@ -1,4 +1,4 @@
 package xtartManager.competiciones.ligas;
 
-public class LigaEspañola {
+public class LigaSpain {
 }

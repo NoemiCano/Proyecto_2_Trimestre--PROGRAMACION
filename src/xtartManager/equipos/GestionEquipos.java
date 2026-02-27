@@ -21,7 +21,7 @@ public class GestionEquipos {
 
     protected static final List<Equipo> equiposCopaDelRey = new ArrayList<>();
     protected static final List<Equipo> equiposSuperCopa = new ArrayList<>();
-    protected static final List<Equipo> equiposLigaEspañola = new ArrayList<>();
+    protected static final List<Equipo> equiposLigaSpain = new ArrayList<>();
 
     protected static final List<Estadio> estadios = new ArrayList<>();
     private static final Random rnd = new Random();
@@ -119,9 +119,9 @@ public class GestionEquipos {
         return equiposSuperCopa;
     }
 
-    public static List<Equipo> getEquiposLigaEspañola() {
+    public static List<Equipo> getEquiposLigaSpain() {
         if (!cargadasCompeticiones) inicializarListasCompeticiones();
-        return equiposLigaEspañola;
+        return equiposLigaSpain;
     }
 
 
@@ -129,7 +129,7 @@ public class GestionEquipos {
         if (!cargadoEquipos) cargarEquiposDesdeTxt();
         if (cargadasCompeticiones) return;
 
-        equiposLigaEspañola.clear();
+        equiposLigaSpain.clear();
         equiposCopaDelRey.clear();
         equiposSuperCopa.clear();
 
@@ -145,7 +145,7 @@ public class GestionEquipos {
         int idx = 0;
 
         for (int i = 0; i < porCompeticion; i++) {
-            equiposLigaEspañola.add(equipos.get(idx++));
+            equiposLigaSpain.add(equipos.get(idx++));
         }
         for (int i = 0; i < porCompeticion; i++) {
             equiposCopaDelRey.add(equipos.get(idx++));
@@ -154,7 +154,7 @@ public class GestionEquipos {
             equiposSuperCopa.add(equipos.get(idx++));
         }
 
-        System.out.println("Lista de equipos Liga Española creada (" + equiposLigaEspañola.size() + " equipos).");
+        System.out.println("Lista de equipos Liga Española creada (" + equiposLigaSpain.size() + " equipos).");
         System.out.println("Lista de equipos Copa del Rey creada (" + equiposCopaDelRey.size() + " equipos).");
         System.out.println("Lista de equipos Supercopa creada (" + equiposSuperCopa.size() + " equipos).");
 
@@ -198,7 +198,7 @@ public class GestionEquipos {
         }
     }
 
-    public static void repartirOnce442SinLeyendas() {
+    public static void asignarJugadoresEquipos() {
         if (!cargadoEquipos) cargarEquiposDesdeTxt();
         GestionPersonal.cargarJugadoresDesdeTxt();
 

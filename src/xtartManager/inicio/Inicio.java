@@ -17,7 +17,7 @@ public class Inicio {
         GestionPersonal.cargarArbitrosDesdeTxt();
         GestionEquipos.asignarEstadiosUnicos();
         GestionEquipos.asignarEntrenadoresUnicos();
-        GestionEquipos.repartirOnce442SinLeyendas();
+        GestionEquipos.asignarJugadoresEquipos();
         GestionEquipos.inicializarListasCompeticiones();
         tienda.inicializarLeyendas();
 
@@ -28,7 +28,7 @@ public class Inicio {
         System.out.println("Entrenadores: " + GestionPersonal.getEntrenadores().size());
         System.out.println("Árbitros: " + GestionPersonal.getArbitros().size());
         System.out.println("Estadios: " +GestionEquipos.getEstadios().size());
-        System.out.println("Equipos Liga Española: " + GestionEquipos.getEquiposLigaEspañola().size());
+        System.out.println("Equipos Liga Española: " + GestionEquipos.getEquiposLigaSpain().size());
         System.out.println("Equipos Copa del Rey: " + GestionEquipos.getEquiposCopaDelRey().size());
         System.out.println("Equipos Supercopa: " + GestionEquipos.getEquiposSuperCopa().size());
 
@@ -105,7 +105,7 @@ public class Inicio {
 
         GestionEquipos.inicializarListasCompeticiones();
 
-        mostrarEquiposCompeticion("Liga Española", GestionEquipos.getEquiposLigaEspañola());
+        mostrarEquiposCompeticion("Liga Española", GestionEquipos.getEquiposLigaSpain());
         mostrarEquiposCompeticion("Copa del Rey", GestionEquipos.getEquiposCopaDelRey());
         mostrarEquiposCompeticion("Supercopa", GestionEquipos.getEquiposSuperCopa());
     }

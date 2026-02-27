@@ -85,9 +85,16 @@ public class ClasificacionEquipos {
         int puntosGanados = CalculadoraFutbol.calcularPuntos(misGoles, golesRival);
         this.puntos += puntosGanados;
 
-        if (puntosGanados == 3) this.victorias++;
-        else if (puntosGanados == 1) this.empates++;
-        else this.derrotas++;
+        if (puntosGanados == 3) {
+            this.victorias++;
+
+        } else if (puntosGanados == 1) {
+            this.empates++;
+
+        } else {
+            this.derrotas++;
+
+        }
     }
 
     @Override

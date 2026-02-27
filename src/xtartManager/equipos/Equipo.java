@@ -1,5 +1,6 @@
 package xtartManager.equipos;
 
+import xtartManager.competiciones.clasificacion.ClasificacionEquipos;
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;
 import xtartManager.persona.Posicion;
@@ -19,6 +20,7 @@ public class Equipo {
     private LocalDate anioFundacion;
     private Entrenador entrenador;
     private List<Jugador> jugadores;
+    private ClasificacionEquipos clasificacion;
 
     public Equipo() {
     }
@@ -108,6 +110,14 @@ public class Equipo {
         this.jugadores = jugadores;
     }
 
+    public ClasificacionEquipos getClasificacion() {
+        return clasificacion;
+    }
+
+    public void setClasificacion(ClasificacionEquipos clasificacion) {
+        this.clasificacion = clasificacion;
+    }
+
     // endregion
 
     public boolean ficharJugador(Jugador j) {
@@ -137,6 +147,23 @@ public class Equipo {
         }
 
         return (contadorDelanteros > 0) ? (sumaAtaque / contadorDelanteros) : 40.0;
+    }
+
+    public Jugador elegirDelanteroAlAzar(){
+        List<Jugador> delanteros = new ArrayList<>();
+
+        for (Jugador j : this.jugadores) {
+            if (j.getPosicion() == Posicion.DELANTERO) {
+                delanteros.add(j);
+            }
+        }
+
+        if (delanteros.isEmpty()) {
+            return null;
+        }
+
+        int indice = (int) (Math.random() * delanteros.size());
+        return delanteros.get(indice);
     }
 
     @Override

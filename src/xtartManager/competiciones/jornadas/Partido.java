@@ -1,7 +1,9 @@
 package xtartManager.competiciones.jornadas;
 
+import xtartManager.competiciones.clasificacion.CalculadoraFutbol;
 import xtartManager.equipos.Equipo;
 import xtartManager.persona.Jugador;
+import xtartManager.persona.Persona;
 
 import java.util.Objects;
 
@@ -83,38 +85,79 @@ public final class Partido {
     }
 
     public void jugarPartido(){
-        double fuerzaLocal = local.calcularFuerzaAtaque();
+        double fuerzaLocal = local.calcularFuerzaAtaque() + VENTAJA_LOCAL;
         double fuerzaVisitante = visitante.calcularFuerzaAtaque();
-
-        fuerzaLocal += VENTAJA_LOCAL;
 
         this.golesLocal = generarGoles(fuerzaLocal);
         this.golesVisitante = generarGoles(fuerzaVisitante);
-
         this.jugado = true;
 
+        golesIndividuales(local, golesLocal);
+        golesIndividuales(visitante, golesVisitante);
+
+        gestionarTarjetas(local);
+        gestionarTarjetas(visitante);
+
+        for (Persona p : visitante.getStaff()) {
+            if (p instanceof Jugador j) {
+                if (Math.random() < 0.03) {
+                    j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
+                    System.out.println("AMARILLA para " + j.getNombre() + " (" + visitante.getNombre() + ")");
+                }
+            }
+        }
+
+        // Actualizar clasificación
         local.getClasificacion().registrarResultado(golesLocal, golesVisitante);
         visitante.getClasificacion().registrarResultado(golesVisitante, golesLocal);
 
-        for (int i = 0; i < this.golesLocal; i++) {
-            Jugador goleador = local.elegirDelanteroAlAzar();
-            if (goleador != null) {
-                goleador.sumarGoles(1); // Sumamos de 1 en 1
-                System.out.println("¡GOL del " + local.getNombre() + "! Marcó: " + goleador.getNombre());
-            }
-        }
+        premiosYMedia(local, golesLocal, golesVisitante);
+        premiosYMedia(visitante, golesVisitante, golesLocal);
 
-        for (int i = 0; i < this.golesVisitante; i++) {
-            Jugador goleador = visitante.elegirDelanteroAlAzar();
-            if (goleador != null) {
-                goleador.sumarGoles(1);
-                System.out.println("¡GOL del " + visitante.getNombre() + "! Marcó: " + goleador.getNombre());
-            }
-        }
-
+        // Mostrar resultado por consola
+        System.out.println("\n--- FINAL DEL PARTIDO ---");
         System.out.println(local.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + visitante.getNombre());
+        System.out.println("--------------------------\n");
+
 
     }
+
+    private void golesIndividuales(Equipo e, int goles) {
+        for (int i = 0; i < goles; i++) {
+            Jugador goleador = e.elegirDelanteroAlAzar();
+            if (goleador != null) {
+                goleador.sumarGoles(1);
+                System.out.println("¡GOL de " + goleador.getNombre() + " (" + e.getNombre() + ")!");
+            }
+        }
+    }
+
+    private void gestionarTarjetas(Equipo e) {
+        for (Persona p : e.getStaff()) {
+            if (p instanceof Jugador j) {
+                if (Math.random() < 0.03) {
+                    j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
+                    System.out.println("AMARILLA: " + j.getNombre() + " [" + e.getNombre() + "]");
+                }
+            }
+        }
+    }
+
+    private void premiosYMedia(Equipo e, int misGoles, int golesRival) {
+        int puntos = CalculadoraFutbol.calcularPuntos(misGoles, golesRival);
+
+        // Dinero
+        if (puntos == 3) e.ingresarDinero(50000);
+        else if (puntos == 1) e.ingresarDinero(20000);
+
+        // Actualizar media de los jugadores (lo que hablamos antes)
+        for (Persona p : e.getStaff()) {
+            if (p instanceof Jugador j) {
+                j.actualizarMediaSegunResultado(puntos);
+            }
+        }
+    }
+
 
     @Override
     public String toString() {

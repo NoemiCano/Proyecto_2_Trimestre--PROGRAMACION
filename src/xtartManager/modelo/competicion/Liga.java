@@ -7,17 +7,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Liga {
-    //private int id_liga;
     private String nombre;
     private String temporada;
-    //private Date fecha_inicio;
-    //private Date fecha_final;
     private List<Jornada> jornadas;
     private List<Equipo> equipos;
+    private int jornadaActual = 0;
 
     public Liga(){}
 
-    public Liga(String nombre, String temporada) {
+    public Liga(String nombre, String temporada, List<Equipo> equipos) {
         this.nombre = nombre;
         this.equipos = equipos;
         this.temporada = temporada;
@@ -43,9 +41,9 @@ public class Liga {
 
     // endregion
 
-    public void calendario(){
+    public void calendario(List<Equipo> equipos){
 
-        List<Equipo> equiposLiga = new ArrayList<>(equipos);
+        List<Equipo> equiposLiga = equipos;
         Collections.shuffle(equiposLiga);
 
         int numEquipos = equiposLiga.size();
@@ -66,9 +64,8 @@ public class Liga {
             Equipo ultimo = equiposLiga.remove(numEquipos - 1);
             equiposLiga.add(1, ultimo);
 
-            calendarioVuelta();
-
         }
+        calendarioVuelta();
     }
 
     private void calendarioVuelta(){
@@ -84,6 +81,38 @@ public class Liga {
             }
             this.jornadas.add(jornadaVuelta);
         }
+    }
+
+    public void jugarJornada(){
+        if(jornadaActual<jornadas.size()){
+            Jornada j = jornadas.get(jornadaActual);
+
+            for(Partido partido : j.getPartidos()){
+
+                partido.jugarPartido();
+            }
+            jornadaActual++;
+            System.out.println("Se ha jugado la jornada: " + jornadaActual);
+        } else {
+            System.out.println("La liga ya ha terminado");
+        }
+
+    }
+
+    public void jugarCalendario(){
+        while(jornadaActual<jornadas.size()){
+            jugarJornada();
+        }
+        System.out.println("Se ha jugado la liga: " + nombre + " " + temporada);
+    }
+
+    public boolean estaFinalizada() {
+        return jornadaActual >= jornadas.size();
+    }
+
+    public void reiniciarLiga() {
+        jornadas.clear();
+        jornadaActual = 0;
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Tienda {
 
-    private final List<Jugador> jugadoresEnVenta = new ArrayList<>();
-    private boolean cargada = false;
+    private static final List<Jugador> jugadoresEnVenta = new ArrayList<>();
+    private static boolean cargada = false;
 
 
     public List<Jugador> getJugadoresEnVenta() {
@@ -24,7 +24,7 @@ public class Tienda {
         this.cargada = cargada;
     }
 
-    public void inicializarLeyendas() {
+    public static void inicializarLeyendas() {
         if (cargada) return;
 
         GestionPersonal.cargarJugadoresDesdeTxt();
@@ -36,7 +36,7 @@ public class Tienda {
         cargada = true;
     }
 
-    public void nuevaTemporada() {
+    public static void nuevaTemporada() {
         jugadoresEnVenta.clear();
         cargada = false;
         inicializarLeyendas();

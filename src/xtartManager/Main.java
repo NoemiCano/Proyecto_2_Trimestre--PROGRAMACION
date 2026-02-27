@@ -1,6 +1,7 @@
 package xtartManager;
 
 import xtartManager.interfaz.Inicio;
+import xtartManager.interfaz.MenuPrincipal;
 
 public class Main {
 
@@ -10,5 +11,8 @@ public class Main {
         Inicio.mostrarEquiposPorCompeticiones();
         Inicio.mostrarResumen();
         Inicio.mostrarLeyendasTienda();
+
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.iniciarMenu();
     }
 }

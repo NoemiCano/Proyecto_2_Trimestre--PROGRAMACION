@@ -3,6 +3,7 @@ package xtartManager.equipos;
 import xtartManager.competiciones.clasificacion.ClasificacionEquipos;
 import xtartManager.persona.Entrenador;
 import xtartManager.persona.Jugador;
+import xtartManager.persona.Persona;
 import xtartManager.persona.Posicion;
 
 import java.time.LocalDate;
@@ -18,9 +19,10 @@ public class Equipo {
     private int codigoPostal;
     private Estadio estadio;
     private LocalDate anioFundacion;
-    private Entrenador entrenador;
-    private List<Jugador> jugadores;
+//    private Entrenador entrenador;
+//    private List<Jugador> jugadores;
     private ClasificacionEquipos clasificacion;
+    private List<Persona> staff;
 
     public Equipo() {
     }
@@ -31,8 +33,7 @@ public class Equipo {
         this.ciudad = ciudad;
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
-        this.entrenador = entrenador;
-        this.jugadores = jugadores;
+        this.staff = new ArrayList<>();
     }
 
     public Equipo(int idEquipo, String nombre, String ciudad, int codigoPostal, LocalDate anioFundacion) {
@@ -41,7 +42,7 @@ public class Equipo {
         this.ciudad = ciudad;
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
-        this.jugadores = new ArrayList<>();
+        this.staff = new ArrayList<>();
     }
 
     // region GETTER & SETTER
@@ -94,20 +95,12 @@ public class Equipo {
         this.anioFundacion = anioFundacion;
     }
 
-    public Entrenador getEntrenador() {
-        return entrenador;
+    public List<Persona> getStaff() {
+        return staff;
     }
 
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
-    }
-
-    public List<Jugador> getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(List<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public void setStaff(List<Persona> staff) {
+        this.staff = staff;
     }
 
     public ClasificacionEquipos getClasificacion() {
@@ -122,13 +115,13 @@ public class Equipo {
 
     public boolean ficharJugador(Jugador j) {
         if (j.getEquipo() != null) return false;
-        jugadores.add(j);
+        staff.add(j);
         j.setEquipo(this);
         return true;
     }
 
     public boolean expulsarJugador(Jugador j) {
-        if (jugadores.remove(j)) {
+        if (staff.remove(j)) {
             j.setEquipo(null);
             return true;
         }
@@ -139,10 +132,13 @@ public class Equipo {
         double sumaAtaque = 0;
         int contadorDelanteros = 0;
 
-        for (Jugador j : this.jugadores){
-            if (j.getPosicion() == Posicion.DELANTERO){
-                sumaAtaque += j.getMedia();
-                contadorDelanteros++;
+        for (Persona p : this.staff) {
+            if (p instanceof Jugador) {
+                Jugador j = (Jugador) p; // DOWNCASTING
+                if (j.getPosicion() == Posicion.DELANTERO) {
+                    sumaAtaque += j.getMedia();
+                    contadorDelanteros++;
+                }
             }
         }
 
@@ -152,9 +148,11 @@ public class Equipo {
     public Jugador elegirDelanteroAlAzar(){
         List<Jugador> delanteros = new ArrayList<>();
 
-        for (Jugador j : this.jugadores) {
-            if (j.getPosicion() == Posicion.DELANTERO) {
-                delanteros.add(j);
+        for (Persona p : this.staff) {
+            if (p instanceof Jugador j) { // DOWNCASTING
+                if (j.getPosicion() == Posicion.DELANTERO) {
+                    delanteros.add(j);
+                }
             }
         }
 
@@ -166,15 +164,26 @@ public class Equipo {
         return delanteros.get(indice);
     }
 
+    public Entrenador getEntrenador() {
+        for (Persona p : staff) {
+            if (p instanceof Entrenador) {
+                return (Entrenador) p; // DOWNCASTING
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Equipo{" +
-                "id=" + idEquipo +
+                "idEquipo=" + idEquipo +
                 ", nombre='" + nombre + '\'' +
                 ", ciudad='" + ciudad + '\'' +
-                ", estadio=" + (estadio != null ? estadio.getNombre() : "SIN_ESTADIO") +
-                ", entrenador=" + (entrenador != null ? entrenador.getNombre() + " " + entrenador.getApellido() : "SIN_ENTRENADOR") +
-                ", numJugadores=" + (jugadores != null ? jugadores.size() : 0) +
+                ", codigoPostal=" + codigoPostal +
+                ", estadio=" + estadio +
+                ", anioFundacion=" + anioFundacion +
+                ", clasificacion=" + clasificacion +
+                ", staff=" + staff +
                 '}';
     }
 
@@ -182,7 +191,6 @@ public class Equipo {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Equipo equipo = (Equipo) o;
-        return idEquipo == equipo.idEquipo;
+        return idEquipo == equipo.idEquipo && codigoPostal == equipo.codigoPostal && Objects.equals(nombre, equipo.nombre) && Objects.equals(ciudad, equipo.ciudad) && Objects.equals(estadio, equipo.estadio) && Objects.equals(anioFundacion, equipo.anioFundacion) && Objects.equals(clasificacion, equipo.clasificacion) && Objects.equals(staff, equipo.staff);
     }
-
 }

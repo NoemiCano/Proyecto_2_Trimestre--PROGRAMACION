@@ -93,13 +93,26 @@ public final class Partido {
 
         this.jugado = true;
 
-        //Pendiente de crear las clases de clasificacionEquipos y clasificacionJugadores
-//        local.getClasificacion().registrarResultado(golesLocal, golesVisitante);
-//        visitante.getClasificacion().registrarResultado(golesVisitante, golesLocal);
+        local.getClasificacion().registrarResultado(golesLocal, golesVisitante);
+        visitante.getClasificacion().registrarResultado(golesVisitante, golesLocal);
 
-        // 5. (Opcional) Mostrar resultado por consola para probar
+        for (int i = 0; i < this.golesLocal; i++) {
+            Jugador goleador = local.elegirDelanteroAlAzar();
+            if (goleador != null) {
+                goleador.sumarGoles(1); // Sumamos de 1 en 1
+                System.out.println("¡GOL del " + local.getNombre() + "! Marcó: " + goleador.getNombre());
+            }
+        }
+
+        for (int i = 0; i < this.golesVisitante; i++) {
+            Jugador goleador = visitante.elegirDelanteroAlAzar();
+            if (goleador != null) {
+                goleador.sumarGoles(1);
+                System.out.println("¡GOL del " + visitante.getNombre() + "! Marcó: " + goleador.getNombre());
+            }
+        }
+
         System.out.println(local.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + visitante.getNombre());
-
 
     }
 

@@ -13,6 +13,7 @@ public final class CalculadoraFutbol {
     }
 
     public static int calcularDiferenciaGoles(int golesFavor, int golesContra) {
+
         return golesFavor - golesContra;
     }
 

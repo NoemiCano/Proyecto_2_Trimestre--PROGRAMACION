@@ -13,9 +13,7 @@ public class Jugador extends Persona {
     private double altura;
     private int media;
     private Equipo equipo;
-
-    public Jugador() {
-    }
+    private int golesMarcados = 0;
 
     public Jugador(String nombre, String apellido, LocalDate fechaNacimiento, int idJugador, int dorsal, int telefono, Posicion posicion, double altura, int media) {
         super(nombre, apellido, fechaNacimiento);
@@ -94,8 +92,20 @@ public class Jugador extends Persona {
         this.equipo = equipo;
     }
 
+    public int getGolesMarcados() {
+        return golesMarcados;
+    }
+
+    public void setGolesMarcados(int golesMarcados) {
+        this.golesMarcados = golesMarcados;
+    }
+
     public void hablar(){
         System.out.println("Hola,gracias por ficharme");
+    }
+
+    public void sumarGoles(int cantidad) {
+        this.golesMarcados += cantidad;
     }
 
     @Override

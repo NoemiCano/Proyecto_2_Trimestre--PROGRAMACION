@@ -120,6 +120,45 @@ public class Equipo {
         this.presupuesto = presupuesto;
     }
 
+    public Entrenador getEntrenador() {
+        for (Persona p : staff) {
+            if (p instanceof Entrenador) {
+                return (Entrenador) p; // DOWNCASTING
+            }
+        }
+        return null;
+    }
+
+    public void setEntrenador(Entrenador e) {
+        this.staff.removeIf(p -> p instanceof Entrenador);
+        if (e != null) {
+            this.staff.add(e);
+        }
+    }
+
+    public List<Jugador> getJugadores() {
+        List<Jugador> soloJugadores = new ArrayList<>();
+
+        for (Persona p : this.staff) {
+            if (p instanceof Jugador j) { // DOWNCASTING
+                soloJugadores.add(j);
+            }
+        }
+        return soloJugadores;
+    }
+
+    public void setJugadores(List<Jugador> nuevosJugadores) {
+        this.staff.removeIf(p -> p instanceof Jugador);
+
+        if (nuevosJugadores != null) {
+            this.staff.addAll(nuevosJugadores);
+
+            for (Jugador j : nuevosJugadores) {
+                j.setEquipo(this);
+            }
+        }
+    }
+
     // endregion
 
     public boolean ficharJugador(Jugador j) {
@@ -171,15 +210,6 @@ public class Equipo {
 
         int indice = (int) (Math.random() * delanteros.size());
         return delanteros.get(indice);
-    }
-
-    public Entrenador getEntrenador() {
-        for (Persona p : staff) {
-            if (p instanceof Entrenador) {
-                return (Entrenador) p; // DOWNCASTING
-            }
-        }
-        return null;
     }
 
     public void ingresarDinero(double cantidad){

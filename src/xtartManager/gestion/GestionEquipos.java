@@ -37,7 +37,7 @@ public class GestionEquipos {
         if (cargadoEquipos) return;
 
         try {
-            Path ruta = Path.of("src/xtartManager/datosCreacion/equipos.txt");
+            Path ruta = Path.of("src/xtartManager/datos/equipos.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
             for (int i = 1; i < lineas.size(); i++) {
@@ -67,7 +67,7 @@ public class GestionEquipos {
         if (cargadoEstadios) return;
 
         try {
-            Path ruta = Path.of("src/xtartManager/datosCreacion/estadios.txt");
+            Path ruta = Path.of("src/xtartManager/datos/estadios.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
             for (int i = 1; i < lineas.size(); i++) {

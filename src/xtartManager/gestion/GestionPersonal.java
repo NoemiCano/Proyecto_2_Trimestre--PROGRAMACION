@@ -29,7 +29,7 @@ public class GestionPersonal {
 
         try {
 
-            Path ruta = Path.of("src/xtartManager/datosCreacion/jugadores.txt");
+            Path ruta = Path.of("src/xtartManager/datos/jugadores.txt");
 
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
@@ -74,7 +74,7 @@ public class GestionPersonal {
         if (cargadoEntrenadores) return;
 
         try {
-            Path ruta = Path.of("src/xtartManager/datosCreacion/entrenadores.txt");
+            Path ruta = Path.of("src/xtartManager/datos/entrenadores.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
             for (int i = 1; i < lineas.size(); i++) {
@@ -111,7 +111,7 @@ public class GestionPersonal {
         if (cargadoArbitros) return;
 
         try {
-            Path ruta = Path.of("src/xtartManager/datosCreacion/arbitros.txt");
+            Path ruta = Path.of("src/xtartManager/datos/arbitros.txt");
             List<String> lineas = Files.readAllLines(ruta, StandardCharsets.UTF_8);
 
             for (int i = 1; i < lineas.size(); i++) {

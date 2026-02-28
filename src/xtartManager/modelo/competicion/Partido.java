@@ -147,10 +147,10 @@ public final class Partido {
         int puntos = CalculadoraFutbol.calcularPuntos(misGoles, golesRival);
 
         // Dinero
-        if (puntos == 3) e.ingresarDinero(50000);
-        else if (puntos == 1) e.ingresarDinero(20000);
+        if (puntos == 3) e.ingresarDinero(20000);
+        else if (puntos == 1) e.ingresarDinero(10000);
 
-        // Actualizar media de los jugadores (lo que hablamos antes)
+        // Actualizar media de los jugadores
         for (Persona p : e.getStaff()) {
             if (p instanceof Jugador j) {
                 j.actualizarMediaSegunResultado(puntos);

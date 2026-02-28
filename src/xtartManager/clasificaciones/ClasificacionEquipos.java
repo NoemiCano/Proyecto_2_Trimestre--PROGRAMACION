@@ -1,5 +1,10 @@
 package xtartManager.clasificaciones;
 
+import xtartManager.modelo.equipos.Equipo;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClasificacionEquipos {
     private int puntos;
     private int partidosJugados;
@@ -75,6 +80,10 @@ public class ClasificacionEquipos {
         this.golesEnContra = golesEnContra;
     }
 
+    public int getDiferenciaGoles() {
+        return this.golesAFavor - this.golesEnContra;
+    }
+
     public void registrarResultado(int misGoles, int golesRival) {
         this.partidosJugados++;
         this.golesAFavor += misGoles;
@@ -94,6 +103,29 @@ public class ClasificacionEquipos {
 
         }
     }
+
+    public static void mostrarTabla(List<Equipo> listaEquipos, String nombreCompeticion) {
+        // 1. Copiamos y Ordenamos
+        List<Equipo> ordenada = new ArrayList<>(listaEquipos);
+        ordenada.sort((e1, e2) -> {
+            int p1 = e1.getClasificacion().getPuntos();
+            int p2 = e2.getClasificacion().getPuntos();
+            if (p1 != p2) return Integer.compare(p2, p1);
+            return Integer.compare(e2.getClasificacion().getDiferenciaGoles(),
+                    e1.getClasificacion().getDiferenciaGoles());
+        });
+
+        // 2. Imprimimos (el código de los printf que ya tienes)
+        System.out.println("\n--- TABLA: " + nombreCompeticion + " ---");
+        System.out.printf("%-20s | %-4s | %-3s | %-3s%n", "Equipo", "PTS", "PJ", "DG");
+
+        for (Equipo e : ordenada) {
+            ClasificacionEquipos c = e.getClasificacion();
+            System.out.printf("%-20s | %-4d | %-3d | %-3d%n",
+                    e.getNombre(), c.getPuntos(), c.getPartidosJugados(), c.getDiferenciaGoles());
+        }
+    }
+
 
     @Override
     public String toString() {

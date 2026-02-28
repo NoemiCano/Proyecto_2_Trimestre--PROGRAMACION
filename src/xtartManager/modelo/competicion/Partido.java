@@ -127,7 +127,7 @@ public final class Partido {
             Jugador goleador = e.elegirDelanteroAlAzar();
             if (goleador != null) {
                 goleador.sumarGoles(1);
-                System.out.println("¡GOL del " + visitante.getNombre() + "! Marcó: " + goleador.getNombre());
+                System.out.println("¡GOL del " + e.getNombre() + "! Marcó: " + goleador.getNombre());
             }
         }
     }

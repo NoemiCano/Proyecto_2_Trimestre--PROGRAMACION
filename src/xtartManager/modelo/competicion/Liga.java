@@ -1,6 +1,10 @@
 package xtartManager.modelo.competicion;
 
+import xtartManager.clasificaciones.ClasificacionEquipos;
+import xtartManager.clasificaciones.ClasificacionJugadores;
 import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.persona.Persona;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -105,6 +109,14 @@ public class Liga {
             jugarJornada();
         }
         System.out.println("Se ha jugado la liga: " + nombre + " " + temporada);
+    }
+
+    public void verClasificacion() {
+        ClasificacionEquipos.mostrarTabla(this.equipos, this.nombre);
+    }
+
+    public void verEstadisticasJugadores() {
+        ClasificacionJugadores.mostrarRankingJugadores(this.equipos);
     }
 
     public boolean estaFinalizada() {

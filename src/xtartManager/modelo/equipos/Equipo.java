@@ -35,6 +35,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.clasificacion = new ClasificacionEquipos();
     }
 
     public Equipo(int idEquipo, String nombre, String ciudad, int codigoPostal, LocalDate anioFundacion) {
@@ -44,6 +45,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.clasificacion = new ClasificacionEquipos();
     }
 
     // region GETTER & SETTER

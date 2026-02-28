@@ -105,7 +105,6 @@ public class ClasificacionEquipos {
     }
 
     public static void mostrarTabla(List<Equipo> listaEquipos, String nombreCompeticion) {
-        // 1. Copiamos y Ordenamos
         List<Equipo> ordenada = new ArrayList<>(listaEquipos);
         ordenada.sort((e1, e2) -> {
             int p1 = e1.getClasificacion().getPuntos();
@@ -115,7 +114,6 @@ public class ClasificacionEquipos {
                     e1.getClasificacion().getDiferenciaGoles());
         });
 
-        // 2. Imprimimos (el código de los printf que ya tienes)
         System.out.println("\n--- TABLA: " + nombreCompeticion + " ---");
         System.out.printf("%-20s | %-4s | %-3s | %-3s%n", "Equipo", "PTS", "PJ", "DG");
 

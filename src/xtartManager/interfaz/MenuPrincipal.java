@@ -66,7 +66,7 @@ public class MenuPrincipal {
                 case 3 -> menuLigaOpciones(ligaSpain);
                 case 4 -> {
                     System.out.println("Volviendo al menú principal...");
-                    break;
+                    return;
                 }
                 default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
@@ -75,7 +75,7 @@ public class MenuPrincipal {
 
     public void menuLigaOpciones(Liga liga){
 
-        int opcion= 0;
+        int opcion;
 
         while (!liga.estaFinalizada()) {
 
@@ -109,7 +109,7 @@ public class MenuPrincipal {
                     } //ClasificacionJugadores();
                     case 6 -> {
                         System.out.println("Volviendo al menú de ligas...");
-                        break;
+                        return;
                     }
                     default -> System.out.println("Opción inválida, inténtalo de nuevo");
                 }
@@ -146,7 +146,7 @@ public class MenuPrincipal {
                 case 3 -> menuLigaOpciones(ligaSpain);
                 case 4 -> {
                     System.out.println("Volviendo al menú anterior...");
-                    break;
+                    return;
                 }
                 default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
@@ -219,7 +219,7 @@ public class MenuPrincipal {
 
         System.out.println("\n =========== EQUIPOS DE LA LIGA ===========");
         for(Equipo e : liga.getEquipos()){
-            System.out.println(e.getNombre() + " " + "Presupuesto: " + e.getPresupuesto());
+            System.out.println(e.getNombre() + " " + " | Presupuesto: " + e.getPresupuesto());
         }
     }
 

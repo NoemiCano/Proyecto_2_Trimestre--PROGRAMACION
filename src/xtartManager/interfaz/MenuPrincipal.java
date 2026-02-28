@@ -3,6 +3,7 @@ package xtartManager.interfaz;
 import xtartManager.gestion.GestionEquipos;
 import xtartManager.gestion.Tienda;
 import xtartManager.modelo.competicion.Liga;
+import xtartManager.modelo.equipos.Equipo;
 
 import java.util.Scanner;
 
@@ -29,22 +30,20 @@ public class MenuPrincipal {
             System.out.println("¡Bienvenido a Xtart Manager! ");
             System.out.println("1. Ver Equipos y Jugadores. ");
             System.out.println("2. Jugar una Liga. ");
-            System.out.println("3. Ir a la Tienda. ");
-            System.out.println("4. Salir. ");
+            System.out.println("3. Salir. ");
 
-            opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 4);
+            opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 3);
 
             switch (opcion) {
                 case 1 -> Inicio.mostrarResumen();
                 case 2 -> menuLigas();
-                case 3 -> Inicio.mostrarLeyendasTienda();
-                case 4 -> {
+                case 3 -> {
                     System.out.println("Saliendo del juego...");
                     System.exit(0);
                 }
                 default-> System.out.println("Opción inválida, inténtalo de nuevo");
             }
-        } while (opcion != 4);
+        } while (opcion != 3);
     }
 
     public void menuLigas(){
@@ -101,7 +100,7 @@ public class MenuPrincipal {
                         liga.jugarCalendario();
                         // mostrar Resultados Totales Liga !!!!
                     }
-                    case 3 -> menuTienda();
+                    case 3 -> menuTienda(liga);
                     case 4 -> {
                         liga.verClasificacion();
                     }
@@ -126,15 +125,32 @@ public class MenuPrincipal {
         comprobarTemporada();
     }
 
-    public void menuTienda(){
+    public void menuTienda(Liga liga){
 
         int opcion= 0;
 
-        System.out.println("\n ======================================");
-        System.out.println("ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar ");
-        System.out.println("1. Ver leyendas "); //que valgan 100 000
-        System.out.println("2. Ver equipos que pueden comprar ");
-        System.out.println("3. Comprar leyendas "); // con que equipo quieres comprar -- leyendas
+        do{
+
+            System.out.println("\n ======================================");
+            System.out.println("ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar a un jugador del equipo con la misma posición. ");
+            System.out.println("1. Ver leyendas "); //que valgan 100 000
+            System.out.println("2. Ver equipos que pueden comprar ");
+            System.out.println("3. Comprar leyendas "); // con que equipo quieres comprar -- leyendas
+            System.out.println("4. Volver al menú anterior. ");
+
+            opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 4);
+
+            switch (opcion) {
+                case 1 -> Inicio.mostrarLeyendasTienda();
+                case 2 -> verEquipos(liga);
+                case 3 -> menuLigaOpciones(ligaSpain);
+                case 4 -> {
+                    System.out.println("Volviendo al menú anterior...");
+                    break;
+                }
+                default -> System.out.println("Opción inválida, inténtalo de nuevo");
+            }
+        }while (opcion != 4);
 
     }
 
@@ -196,5 +212,18 @@ public class MenuPrincipal {
     }
 
     //endregion
+
+    //region TIENDA
+
+    private void verEquipos(Liga liga){
+
+        System.out.println("\n =========== EQUIPOS DE LA LIGA ===========");
+        for(Equipo e : liga.getEquipos()){
+            System.out.println(e.getNombre() + " " + "Presupuesto: " + e.getPresupuesto());
+        }
+    }
+
+    //endregion
+
 
 }

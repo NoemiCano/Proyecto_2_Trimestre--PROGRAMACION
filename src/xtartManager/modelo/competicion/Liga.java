@@ -44,6 +44,10 @@ public class Liga {
         this.temporada = temporada;
     }
 
+    public List<Equipo> getEquipos() {
+        return equipos;
+    }
+
     // endregion
 
     public void calendario(List<Equipo> equipos){

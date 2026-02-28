@@ -130,12 +130,32 @@ public class Equipo {
     }
 
     public void setEntrenador(Entrenador e) {
-        // 1. Opcional: Si ya había un entrenador en el staff, lo quitamos primero
         this.staff.removeIf(p -> p instanceof Entrenador);
-
-        // 2. Añadimos al nuevo entrenador (UPCASTING: de Entrenador a Persona)
         if (e != null) {
             this.staff.add(e);
+        }
+    }
+
+    public List<Jugador> getJugadores() {
+        List<Jugador> soloJugadores = new ArrayList<>();
+
+        for (Persona p : this.staff) {
+            if (p instanceof Jugador j) { // DOWNCASTING
+                soloJugadores.add(j);
+            }
+        }
+        return soloJugadores;
+    }
+
+    public void setJugadores(List<Jugador> nuevosJugadores) {
+        this.staff.removeIf(p -> p instanceof Jugador);
+
+        if (nuevosJugadores != null) {
+            this.staff.addAll(nuevosJugadores);
+
+            for (Jugador j : nuevosJugadores) {
+                j.setEquipo(this);
+            }
         }
     }
 

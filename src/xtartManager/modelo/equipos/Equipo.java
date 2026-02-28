@@ -120,6 +120,25 @@ public class Equipo {
         this.presupuesto = presupuesto;
     }
 
+    public Entrenador getEntrenador() {
+        for (Persona p : staff) {
+            if (p instanceof Entrenador) {
+                return (Entrenador) p; // DOWNCASTING
+            }
+        }
+        return null;
+    }
+
+    public void setEntrenador(Entrenador e) {
+        // 1. Opcional: Si ya había un entrenador en el staff, lo quitamos primero
+        this.staff.removeIf(p -> p instanceof Entrenador);
+
+        // 2. Añadimos al nuevo entrenador (UPCASTING: de Entrenador a Persona)
+        if (e != null) {
+            this.staff.add(e);
+        }
+    }
+
     // endregion
 
     public boolean ficharJugador(Jugador j) {
@@ -171,15 +190,6 @@ public class Equipo {
 
         int indice = (int) (Math.random() * delanteros.size());
         return delanteros.get(indice);
-    }
-
-    public Entrenador getEntrenador() {
-        for (Persona p : staff) {
-            if (p instanceof Entrenador) {
-                return (Entrenador) p; // DOWNCASTING
-            }
-        }
-        return null;
     }
 
     public void ingresarDinero(double cantidad){

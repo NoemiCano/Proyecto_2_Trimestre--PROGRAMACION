@@ -79,7 +79,8 @@ public class Inicio {
                             " | " + j.getNombre() + " " + j.getApellido() +
                             " | Pos: " + j.getPosicion() +
                             " | Media: " + j.getMedia() +
-                            " | Altura: " + j.getAltura()
+                            " | Altura: " + j.getAltura() +
+                            " | Precio: 100 000€"
             );
         }
 

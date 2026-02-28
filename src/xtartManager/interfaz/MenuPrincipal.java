@@ -17,7 +17,7 @@ public class MenuPrincipal {
     private String temporadaActual = "26/27";
 
     public MenuPrincipal() {
-        crearNuevaTemporada();
+        crearTemporada();
     }
 
     public void iniciarMenu(){
@@ -32,7 +32,7 @@ public class MenuPrincipal {
             System.out.println("3. Ir a la Tienda. ");
             System.out.println("4. Salir. ");
 
-            opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 3);
+            opcion = Errores.comprobar(sc, "¿Qué acción deseas realizar?", 1, 4);
 
             switch (opcion) {
                 case 1 -> Inicio.mostrarResumen();
@@ -80,8 +80,6 @@ public class MenuPrincipal {
 
         while (!liga.estaFinalizada()) {
 
-
-
             do{
 
                 System.out.println("\n ======================================");
@@ -104,8 +102,12 @@ public class MenuPrincipal {
                         // mostrar Resultados Totales Liga !!!!
                     }
                     case 3 -> menuTienda();
-                    case 4 -> System.out.println("Clasificación EQUIPOS: "); //ClasificacionEquipos();
-                    case 5 -> System.out.println("Clasificación JUGADORES: "); //ClasificacionJugadores();
+                    case 4 -> {
+                        liga.verClasificacion();
+                    }
+                    case 5 -> {
+                        liga.verEstadisticasJugadores();
+                    } //ClasificacionJugadores();
                     case 6 -> {
                         System.out.println("Volviendo al menú de ligas...");
                         break;
@@ -129,12 +131,16 @@ public class MenuPrincipal {
         int opcion= 0;
 
         System.out.println("\n ======================================");
+        System.out.println("ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar ");
+        System.out.println("1. Ver leyendas "); //que valgan 100 000
+        System.out.println("2. Ver equipos que pueden comprar ");
+        System.out.println("3. Comprar leyendas "); // con que equipo quieres comprar -- leyendas
 
     }
 
     //region TEMPORADAS
 
-    private void crearNuevaTemporada() {
+    private void crearTemporada() {
 
         copaRey = new Liga("Copa del Rey", temporadaActual, GestionEquipos.getEquiposCopaDelRey());
         supercopa = new Liga("Supercopa", temporadaActual, GestionEquipos.getEquiposSuperCopa());
@@ -171,6 +177,7 @@ public class MenuPrincipal {
         copaRey.reiniciarLiga();
         supercopa.reiniciarLiga();
         ligaSpain.reiniciarLiga();
+        crearTemporada();
 
         System.out.println("Nueva temporada iniciada: " + temporadaActual);
 

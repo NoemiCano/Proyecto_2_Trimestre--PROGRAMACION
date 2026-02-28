@@ -17,6 +17,7 @@ public class Liga {
 
     public Liga(String nombre, String temporada, List<Equipo> equipos) {
         this.nombre = nombre;
+        this.jornadas = new ArrayList<>();
         this.equipos = equipos;
         this.temporada = temporada;
     }

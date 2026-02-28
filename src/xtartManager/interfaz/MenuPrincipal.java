@@ -16,11 +16,13 @@ public class MenuPrincipal {
 
     private String temporadaActual = "26/27";
 
+    public MenuPrincipal() {
+        crearNuevaTemporada();
+    }
+
     public void iniciarMenu(){
 
         int opcion = 0;
-
-        comprobarTemporada();
 
         do {
             System.out.println("\n ======================================");
@@ -63,7 +65,10 @@ public class MenuPrincipal {
                 case 1 -> menuLigaOpciones(copaRey);
                 case 2 -> menuLigaOpciones(supercopa);
                 case 3 -> menuLigaOpciones(ligaSpain);
-                case 4 -> System.out.println("Volviendo al menú principal...");
+                case 4 -> {
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                }
                 default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
         }while (opcion != 4);
@@ -75,8 +80,7 @@ public class MenuPrincipal {
 
         while (!liga.estaFinalizada()) {
 
-            liga = new Liga("Copa del Rey", temporadaActual, GestionEquipos.getEquiposCopaDelRey());
-            liga.calendario(GestionEquipos.getEquiposCopaDelRey());
+
 
             do{
 
@@ -102,7 +106,10 @@ public class MenuPrincipal {
                     case 3 -> menuTienda();
                     case 4 -> System.out.println("Clasificación EQUIPOS: "); //ClasificacionEquipos();
                     case 5 -> System.out.println("Clasificación JUGADORES: "); //ClasificacionJugadores();
-                    case 6 -> System.out.println("Volviendo al menú de ligas...");
+                    case 6 -> {
+                        System.out.println("Volviendo al menú de ligas...");
+                        break;
+                    }
                     default -> System.out.println("Opción inválida, inténtalo de nuevo");
                 }
 
@@ -126,6 +133,18 @@ public class MenuPrincipal {
     }
 
     //region TEMPORADAS
+
+    private void crearNuevaTemporada() {
+
+        copaRey = new Liga("Copa del Rey", temporadaActual, GestionEquipos.getEquiposCopaDelRey());
+        supercopa = new Liga("Supercopa", temporadaActual, GestionEquipos.getEquiposSuperCopa());
+        ligaSpain = new Liga("Liga Española", temporadaActual, GestionEquipos.getEquiposLigaSpain());
+
+        copaRey.calendario(GestionEquipos.getEquiposCopaDelRey());
+        supercopa.calendario(GestionEquipos.getEquiposSuperCopa());
+        ligaSpain.calendario(GestionEquipos.getEquiposLigaSpain());
+
+    }
 
     private void comprobarTemporada(){
 

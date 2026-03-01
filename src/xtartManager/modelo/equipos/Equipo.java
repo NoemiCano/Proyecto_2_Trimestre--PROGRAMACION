@@ -161,6 +161,18 @@ public class Equipo {
         }
     }
 
+    public List<Jugador> getJugadoresPorPosicion(Posicion posicion) {
+        List<Jugador> resultado = new ArrayList<>();
+        for (Persona p : staff) {
+            if (p instanceof Jugador j) {
+                if (j.getPosicion() == posicion) {
+                    resultado.add(j);
+                }
+            }
+        }
+        return resultado;
+    }
+
     // endregion
 
     public boolean ficharJugador(Jugador j) {
@@ -176,6 +188,19 @@ public class Equipo {
             return true;
         }
         return false;
+    }
+
+    public boolean reemplazarJugador(Jugador jExpulsado, Jugador nuevo) {
+
+        boolean expulsado = expulsarJugador(jExpulsado);
+        if (!expulsado) return false;
+
+        boolean fichado = ficharJugador(nuevo);
+        if (!fichado) {
+            ficharJugador(jExpulsado);
+            return false;
+        }
+        return true;
     }
 
     public double calcularFuerzaAtaque(){

@@ -12,7 +12,7 @@ public class Main {
         Inicio.mostrarResumen();
         Inicio.mostrarLeyendasTienda();
 
-        MenuPrincipal menu = new MenuPrincipal();
-        menu.iniciarMenu();
+        MenuPrincipal menuP = new MenuPrincipal();
+        menuP.iniciarMenu();
     }
 }

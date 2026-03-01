@@ -115,16 +115,19 @@ public class ClasificacionEquipos {
                     e1.getClasificacion().getDiferenciaGoles());
         });
 
-        System.out.println("\n-------- TABLA: " + nombreCompeticion + " - temporada: " + liga.getTemporada() + " --------");
+        System.out.println("\n========= RESUMEN COMPETICION: " + nombreCompeticion + " - temporada: " + liga.getTemporada() + " =========");
         System.out.println("LEYENDA: PJ = Partidos Jugados, GF = Goles a Favor, GC = Goles en Contra" );
+        System.out.println("-".repeat(75));
 
         System.out.printf("%-20s | %-8s | %-10s | %-10s | %-10s%n", "Equipo", "Puntos", "PJ", "GF", "GC");
+        System.out.println("-".repeat(75));
 
         for (Equipo e : ordenada) {
             ClasificacionEquipos c = e.getClasificacion();
             System.out.printf("%-20s | %-8d | %-10d | %-10d | %-10d%n",
                     e.getNombre(), c.getPuntos(), c.getPartidosJugados(), c.getGolesAFavor(), c.getGolesEnContra());
         }
+        System.out.println("-".repeat(75));
     }
 
 

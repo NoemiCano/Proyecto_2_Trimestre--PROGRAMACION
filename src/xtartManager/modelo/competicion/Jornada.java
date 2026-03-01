@@ -54,7 +54,7 @@ public class Jornada {
     }
 
     public void mostrarResumenJornada(int numeroJornada) {
-        System.out.println("\n=== RESUMEN JORNADA " + numeroJornada + " ===");
+        System.out.println("\n========= RESUMEN JORNADA " + numeroJornada + " =========");
 
         System.out.printf("%-20s | %-7s | %-20s | %s%n", "LOCAL", "GOLES", "VISITANTE", "GOLEADOR");
         System.out.println("-".repeat(95));

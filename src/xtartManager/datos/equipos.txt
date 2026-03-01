@@ -25,7 +25,7 @@ idEquipo;nombre;ciudad;codigoPostal;anioFundacion
 24;Bayer Leverkusen;Leverkusen;51300;1904-01-01
 25;Eintracht Frankfurt;Frankfurt;60000;1899-01-01
 26;VfB Stuttgart;Stuttgart;70100;1893-01-01
-27;Borussia Mönchengladbach;Mönchengladbach;41000;1900-01-01
+27;Borussia Möncheng;Möncheng;41000;1900-01-01
 28;Werder Bremen;Bremen;28100;1899-01-01
 29;Hamburger SV;Hamburg;20000;1887-01-01
 30;Schalke 04;Gelsenkirchen;45800;1904-01-01

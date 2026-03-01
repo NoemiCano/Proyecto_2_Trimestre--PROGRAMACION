@@ -246,23 +246,8 @@ public class Equipo {
         this.presupuesto += cantidad;
     }
 
-    public void restaurarEquipo(){
-
-        for (Persona p : staff) {
-            if (p instanceof Jugador j) {
-                j.setEquipo(null);
-            }
-        }
-
-        staff.clear();
-        staff.addAll(plantillaOriginal);
-
-        for (Persona p : staff) {
-            if (p instanceof Jugador j) {
-                j.setEquipo(this);
-            }
-        }
-
+    public void reiniciarClasificacion() {
+        clasificacion.reiniciar();
     }
 
     @Override

@@ -141,6 +141,12 @@ public class Jugador extends Persona {
         }
     }
 
+    public void reiniciarEstadisticas() {
+        golesMarcados = 0;
+        tarjetasAmarillas = 0;
+        tarjetasRojas = 0;
+    }
+
     @Override
     public String toString() {
         return "Jugador{" +

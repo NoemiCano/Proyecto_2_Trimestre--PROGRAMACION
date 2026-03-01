@@ -130,6 +130,16 @@ public class ClasificacionEquipos {
         System.out.println("-".repeat(75));
     }
 
+    public void reiniciar() {
+        puntos = 0;
+        partidosJugados = 0;
+        victorias = 0;
+        empates = 0;
+        derrotas = 0;
+        golesAFavor = 0;
+        golesEnContra = 0;
+    }
+
 
     @Override
     public String toString() {

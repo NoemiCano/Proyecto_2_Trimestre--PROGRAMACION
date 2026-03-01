@@ -112,7 +112,6 @@ public class Liga {
             jugarJornada();
         }
         System.out.println("Se ha jugado la liga: " + nombre + " " + temporada);
-        MenuPrincipal.menuLigas();
     }
 
     public void verClasificacion() {

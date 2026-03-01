@@ -146,7 +146,15 @@ public class GestionPersonal {
         return arbitros;
     }
 
+    public static Jugador buscarJugadorPorId(int id) {
 
+        for (Jugador j : jugadores) {
+            if (j.getIdJugador() == id) {
+                return j;
+            }
+        }
 
+        return null;
+    }
 
 }

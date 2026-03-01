@@ -23,6 +23,7 @@ public class Equipo {
 //    private List<Jugador> jugadores;
     private ClasificacionEquipos clasificacion;
     private List<Persona> staff;
+    private List<Persona> plantillaOriginal;
     private double presupuesto = 0;
 
     public Equipo() {
@@ -35,6 +36,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.plantillaOriginal = new ArrayList<>(staff);
         this.clasificacion = new ClasificacionEquipos();
     }
 
@@ -45,6 +47,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.plantillaOriginal = new ArrayList<>(staff);
         this.clasificacion = new ClasificacionEquipos();
     }
 
@@ -241,6 +244,25 @@ public class Equipo {
 
     public void ingresarDinero(double cantidad){
         this.presupuesto += cantidad;
+    }
+
+    public void restaurarEquipo(){
+
+        for (Persona p : staff) {
+            if (p instanceof Jugador j) {
+                j.setEquipo(null);
+            }
+        }
+
+        staff.clear();
+        staff.addAll(plantillaOriginal);
+
+        for (Persona p : staff) {
+            if (p instanceof Jugador j) {
+                j.setEquipo(this);
+            }
+        }
+
     }
 
     @Override

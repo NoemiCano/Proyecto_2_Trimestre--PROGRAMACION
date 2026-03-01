@@ -2,9 +2,8 @@ package xtartManager.modelo.competicion;
 
 import xtartManager.clasificaciones.ClasificacionEquipos;
 import xtartManager.clasificaciones.ClasificacionJugadores;
+import xtartManager.interfaz.MenuPrincipal;
 import xtartManager.modelo.equipos.Equipo;
-import xtartManager.modelo.persona.Jugador;
-import xtartManager.modelo.persona.Persona;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,6 +112,7 @@ public class Liga {
             jugarJornada();
         }
         System.out.println("Se ha jugado la liga: " + nombre + " " + temporada);
+        MenuPrincipal.menuLigas();
     }
 
     public void verClasificacion() {

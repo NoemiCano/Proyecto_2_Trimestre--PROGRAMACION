@@ -30,10 +30,12 @@ public class MenuPrincipal {
 
     public void iniciarMenu(){
 
+        comprobarTemporada();
         int opcion = 0;
 
         do {
-            System.out.println("\n ======================================");
+            comprobarTemporada();
+            System.out.println("\n======================================");
             System.out.println("¡Bienvenido a Xtart Manager! ");
             System.out.println("1. Ver Equipos y Jugadores. ");
             System.out.println("2. Jugar una Liga. ");
@@ -56,10 +58,11 @@ public class MenuPrincipal {
     public void menuLigas(){
 
         int opcion= 0;
+        comprobarTemporada();
 
         do{
-
-            System.out.println("\n ======================================");
+            comprobarTemporada();
+            System.out.println("\n======================================");
             System.out.println("1. Copa del Rey");
             System.out.println("2. Supercopa");
             System.out.println("3. Liga Española");
@@ -73,7 +76,7 @@ public class MenuPrincipal {
                 case 3 -> menuLigaOpciones(ligaSpain);
                 case 4 -> {
                     System.out.println("Volviendo al menú principal...");
-                    return; //no funciona bien hay q cambiarlo
+                    iniciarMenu();
                 }
                 default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
@@ -84,12 +87,36 @@ public class MenuPrincipal {
 
         int opcion;
         boolean salir = false;
+        comprobarTemporada();
+
+        if (liga.estaFinalizada()) {
+
+            do{
+                System.out.println("\n======================================");
+                System.out.println("La liga " + liga.getNombre() + " " + temporadaActual + " ha terminado.");
+                System.out.println("1. Ver la Clasificación de Equipos. ");
+                System.out.println("2. Ver la Clasificación de Jugadores. ");
+                System.out.println("3. Volver al Menú de Ligas. ");
+                opcion = Errores.comprobar(sc, "¿Qué deseas hacer?\n", 1, 3);
+
+                switch (opcion) {
+                    case 1 -> liga.verClasificacion();
+                    case 2 -> liga.verEstadisticasJugadores();
+                    case 3 -> {
+                        System.out.println("Volviendo al menú de ligas...");
+                        menuLigas();
+                    }
+                    default -> System.out.println("Opción inválida, inténtalo de nuevo");
+                }
+
+            }while(!salir);
+        }
 
         while (!liga.estaFinalizada()) {
 
             do{
 
-                System.out.println("\n ======================================");
+                System.out.println("\n======================================");
                 System.out.println("¡Bienvenido a " + liga.getNombre() + " " + temporadaActual + ". ");
                 System.out.println("1. Jugar la siguiente Jornada. ");
                 System.out.println("2. Jugar todo el calendario de " + liga.getNombre() + " " + temporadaActual);
@@ -103,17 +130,25 @@ public class MenuPrincipal {
                     case 1 -> {
                         liga.jugarJornada();
                         // mostrar Resultados Ultima Jornada !!!!
+                        if (liga.estaFinalizada()) {
+                            System.out.println("Liga finalizada.");
+                            menuLigas();
+                        }
                     }
                     case 2 -> {
                         liga.jugarCalendario();
                         // mostrar Resultados Totales Liga !!!!
+                        if (liga.estaFinalizada()) {
+                            System.out.println("Liga finalizada.");
+                            menuLigas();
+                        }
                     }
                     case 3 -> menuTienda(liga);
                     case 4 -> liga.verClasificacion();
                     case 5 -> liga.verEstadisticasJugadores();
                     case 6 -> {
                         System.out.println("Volviendo al menú de ligas...");
-                        salir = true;
+                        menuLigas();
                     }
                     default -> System.out.println("Opción inválida, inténtalo de nuevo");
                 }
@@ -122,27 +157,6 @@ public class MenuPrincipal {
 
         }
 
-        if (liga.estaFinalizada()) {
-
-            do{
-                System.out.println("La liga " + liga.getNombre() + " " + temporadaActual + " ha terminado.");
-                System.out.println("1. Ver la Clasificación de Equipos. ");
-                System.out.println("2. Ver la Clasificación de Jugadores. ");
-                System.out.println("3. Volver al Menú de Ligas. ");
-                opcion = Errores.comprobar(sc, "¿Qué deseas hacer?\n", 1, 3);
-
-                switch (opcion) {
-                    case 1 -> liga.verClasificacion();
-                    case 2 -> liga.verEstadisticasJugadores();
-                    case 3 -> {
-                        System.out.println("Volviendo al menú de ligas...");
-                        salir = true;
-                    }
-                    default -> System.out.println("Opción inválida, inténtalo de nuevo");
-                }
-
-            }while(!salir);
-        }
         comprobarTemporada();
     }
 
@@ -153,7 +167,7 @@ public class MenuPrincipal {
 
         do{
 
-            System.out.println("\n ======================================");
+            System.out.println("\n======================================");
             System.out.println("ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar a un jugador del equipo con la misma posición. ");
             System.out.println("1. Ver leyendas "); //que valgan 100 000
             System.out.println("2. Ver equipos de la " + liga.getNombre() + " " + temporadaActual + ". ");
@@ -166,7 +180,7 @@ public class MenuPrincipal {
                 case 1 -> Inicio.mostrarLeyendasTienda();
                 case 2 -> verEquipos(liga);
                 case 3 -> comprarTienda(liga);
-                case 4 -> salir = true;
+                case 4 -> menuLigaOpciones(liga);
                 default -> System.out.println("Opción inválida, inténtalo de nuevo");
             }
         }while (!salir);
@@ -190,32 +204,56 @@ public class MenuPrincipal {
     private void comprobarTemporada(){
 
         if (copaRey.estaFinalizada() && supercopa.estaFinalizada() && ligaSpain.estaFinalizada()) {
-
-            System.out.println("Temporada finalizada.");
-
-            /*
-             Permitir ver resultados antes de reiniciar la temporada:
-
-             System.out.println("Temporada finalizada. Pulse Enter para iniciar nueva temporada.");
-            sc.nextLine();
-            */
-
-            cambiarTemporada();
+            menuFinTemporada();
         }
+    }
+
+    private void menuFinTemporada(){
+        int opcion;
+        boolean salir = false;
+
+        do {
+            System.out.println("\n===== LA TEMPORADA " + temporadaActual + " HA FINALIZADO =====");
+            System.out.println("1. Ver clasificación Copa del Rey");
+            System.out.println("2. Ver clasificación Supercopa");
+            System.out.println("3. Ver clasificación Liga Española");
+            System.out.println("4. Ver estadísticas jugadores Copa del Rey");
+            System.out.println("5. Ver estadísticas jugadores Supercopa");
+            System.out.println("6. Ver estadísticas jugadores Liga Española");
+            System.out.println("7. Iniciar nueva temporada");
+
+            opcion = Errores.comprobar(sc, "Elige una opción:", 1, 7);
+
+            switch (opcion) {
+                case 1 -> copaRey.verClasificacion();
+                case 2 -> supercopa.verClasificacion();
+                case 3 -> ligaSpain.verClasificacion();
+                case 4 -> copaRey.verEstadisticasJugadores();
+                case 5 -> supercopa.verEstadisticasJugadores();
+                case 6 -> ligaSpain.verEstadisticasJugadores();
+                case 7 -> {
+                    System.out.println("Iniciando nueva temporada...");
+                    cambiarTemporada();
+                }
+            }
+        }while (!salir) ;
     }
 
     private void cambiarTemporada(){
 
         temporadaActual = calcularTemporada(temporadaActual);
 
+        //GestionEquipos.asignarJugadoresEquipos();
         Tienda.nuevaTemporada();
         copaRey.reiniciarLiga();
         supercopa.reiniciarLiga();
         ligaSpain.reiniciarLiga();
+
         crearTemporada();
 
-        System.out.println("Nueva temporada iniciada: " + temporadaActual);
-
+        System.out.println("Nueva temporada iniciada: " + temporadaActual + ". Pulsa ENTER para continuar. ");
+        sc.nextLine();
+        iniciarMenu();
     }
 
     private String calcularTemporada(String temporadaActual) {
@@ -238,7 +276,7 @@ public class MenuPrincipal {
 
         int opcion;
 
-        System.out.println("\n =========== EQUIPOS DE LA " + liga.getNombre() + " " + temporadaActual + " ===========");
+        System.out.println("\n=========== EQUIPOS DE LA " + liga.getNombre() + " " + temporadaActual + " ===========");
 
         for (int i = 0; i < liga.getEquipos().size(); i++) {
             Equipo e = liga.getEquipos().get(i);

@@ -100,6 +100,7 @@ public class Liga {
                 partido.jugarPartido();
             }
             jornadaActual++;
+            j.mostrarResumenJornada(jornadaActual);
             System.out.println("Se ha jugado la jornada: " + jornadaActual);
         } else {
             System.out.println("La liga ya ha terminado");
@@ -112,10 +113,11 @@ public class Liga {
             jugarJornada();
         }
         System.out.println("Se ha jugado la liga: " + nombre + " " + temporada);
+
     }
 
     public void verClasificacion() {
-        ClasificacionEquipos.mostrarTabla(this.equipos, this.nombre);
+        ClasificacionEquipos.mostrarTabla(this.equipos, this.nombre, this);
     }
 
     public void verEstadisticasJugadores() {

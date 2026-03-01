@@ -1,5 +1,6 @@
 package xtartManager.clasificaciones;
 
+import xtartManager.modelo.competicion.Liga;
 import xtartManager.modelo.equipos.Equipo;
 
 import java.util.ArrayList;
@@ -104,7 +105,7 @@ public class ClasificacionEquipos {
         }
     }
 
-    public static void mostrarTabla(List<Equipo> listaEquipos, String nombreCompeticion) {
+    public static void mostrarTabla(List<Equipo> listaEquipos, String nombreCompeticion, Liga liga) {
         List<Equipo> ordenada = new ArrayList<>(listaEquipos);
         ordenada.sort((e1, e2) -> {
             int p1 = e1.getClasificacion().getPuntos();
@@ -114,14 +115,19 @@ public class ClasificacionEquipos {
                     e1.getClasificacion().getDiferenciaGoles());
         });
 
-        System.out.println("\n--- TABLA: " + nombreCompeticion + " ---");
-        System.out.printf("%-20s | %-4s | %-3s | %-3s%n", "Equipo", "PTS", "PJ", "DG");
+        System.out.println("\n========= RESUMEN COMPETICION: " + nombreCompeticion + " - temporada: " + liga.getTemporada() + " =========");
+        System.out.println("LEYENDA: PJ = Partidos Jugados, GF = Goles a Favor, GC = Goles en Contra" );
+        System.out.println("-".repeat(75));
+
+        System.out.printf("%-20s | %-8s | %-10s | %-10s | %-10s%n", "Equipo", "Puntos", "PJ", "GF", "GC");
+        System.out.println("-".repeat(75));
 
         for (Equipo e : ordenada) {
             ClasificacionEquipos c = e.getClasificacion();
-            System.out.printf("%-20s | %-4d | %-3d | %-3d%n",
-                    e.getNombre(), c.getPuntos(), c.getPartidosJugados(), c.getDiferenciaGoles());
+            System.out.printf("%-20s | %-8d | %-10d | %-10d | %-10d%n",
+                    e.getNombre(), c.getPuntos(), c.getPartidosJugados(), c.getGolesAFavor(), c.getGolesEnContra());
         }
+        System.out.println("-".repeat(75));
     }
 
 

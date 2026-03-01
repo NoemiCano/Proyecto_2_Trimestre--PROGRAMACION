@@ -245,16 +245,8 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return "Equipo{" +
-                "idEquipo=" + idEquipo +
-                ", nombre='" + nombre + '\'' +
-                ", ciudad='" + ciudad + '\'' +
-                ", codigoPostal=" + codigoPostal +
-                ", estadio=" + estadio +
-                ", anioFundacion=" + anioFundacion +
-                ", clasificacion=" + clasificacion +
-                ", staff=" + staff +
-                '}';
+        return "Equipo: " + nombre +
+                "| anioFundacion: " + anioFundacion;
     }
 
     @Override

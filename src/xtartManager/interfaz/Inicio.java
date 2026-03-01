@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Inicio {
 
-    private static final Tienda tienda = new Tienda();
+    public static final Tienda tienda = new Tienda();
 
     public static void iniciar() {
 

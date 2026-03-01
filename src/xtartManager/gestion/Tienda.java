@@ -43,8 +43,8 @@ public class Tienda {
     }
 
 
-    public boolean comprarLeyenda(int idJugador, Equipo destino) {
-        if (destino == null) return false;
+    public boolean comprarLeyenda(int idJugador, Equipo destino, Jugador expulsado) {
+        if (destino == null || expulsado == null) return false;
 
         Jugador elegido = null;
         for (Jugador j : jugadoresEnVenta) {
@@ -54,12 +54,13 @@ public class Tienda {
             }
         }
 
-        if (elegido == null) return false;
-        if (elegido.getEquipo() != null) return false;
+        if (elegido == null || elegido.getEquipo() != null) return false;
 
-        boolean ok = destino.ficharJugador(elegido);
-        if (ok) jugadoresEnVenta.remove(elegido);
+        destino.reemplazarJugador(expulsado, elegido);
+        destino.setPresupuesto(destino.getPresupuesto() - 100000);
 
-        return ok;
+        jugadoresEnVenta.remove(elegido);
+
+        return true;
     }
 }

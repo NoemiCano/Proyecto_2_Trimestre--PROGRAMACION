@@ -53,6 +53,26 @@ public class Jornada {
 
     }
 
+    public void mostrarResumenJornada(int numeroJornada) {
+        System.out.println("\n=== RESUMEN JORNADA " + numeroJornada + " ===");
+
+        System.out.printf("%-20s | %-7s | %-20s | %s%n", "LOCAL", "GOLES", "VISITANTE", "GOLEADOR");
+        System.out.println("-".repeat(95));
+
+        // Como estamos en la clase Jornada, usamos "this.partidos" (o como se llame tu lista de partidos)
+        for (Partido p : this.partidos) {
+            if (p.isJugado()) {
+                String marcador = String.format("%2d - %-2d", p.getGolesLocal(), p.getGolesVisitante());
+                System.out.printf("%-20s | %-7s | %-20s | %s%n",
+                        p.getLocal().getNombre(),
+                        marcador,
+                        p.getVisitante().getNombre(),
+                        p.obtenerGoleadoresBreve());
+            }
+        }
+        System.out.println("-".repeat(95));
+    }
+
     @Override
     public String toString() {
         return "Jornada:" +

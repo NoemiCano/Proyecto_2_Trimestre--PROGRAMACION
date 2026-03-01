@@ -5,6 +5,8 @@ import xtartManager.modelo.equipos.Equipo;
 import xtartManager.modelo.persona.Jugador;
 import xtartManager.modelo.persona.Persona;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public final class Partido {
@@ -13,6 +15,7 @@ public final class Partido {
     private int golesLocal;
     private int golesVisitante;
     private boolean jugado = false;
+    private List<String> nombresGoleadores = new ArrayList<>();
 
     private static final double VENTAJA_LOCAL = 5.0;
 
@@ -102,7 +105,7 @@ public final class Partido {
             if (p instanceof Jugador j) {
                 if (Math.random() < 0.03) {
                     j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
-                    System.out.println("AMARILLA para " + j.getNombre() + " (" + visitante.getNombre() + ")");
+//                    System.out.println("AMARILLA para " + j.getNombre() + " (" + visitante.getNombre() + ")");
                 }
             }
         }
@@ -115,9 +118,9 @@ public final class Partido {
         premiosYMedia(visitante, golesVisitante, golesLocal);
 
         // Mostrar resultado por consola
-        System.out.println("\n--- FINAL DEL PARTIDO ---");
-        System.out.println(local.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + visitante.getNombre());
-        System.out.println("--------------------------\n");
+//        System.out.println("\n--- FINAL DEL PARTIDO ---");
+//        System.out.println(local.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + visitante.getNombre());
+//        System.out.println("--------------------------\n");
 
 
     }
@@ -127,9 +130,15 @@ public final class Partido {
             Jugador goleador = e.elegirDelanteroAlAzar();
             if (goleador != null) {
                 goleador.sumarGoles(1);
-                System.out.println("¡GOL del " + e.getNombre() + "! Marcó: " + goleador.getNombre());
+                nombresGoleadores.add(goleador.getNombre() + " (" + e.getNombre() + ")");
+//                System.out.println("¡GOL del " + e.getNombre() + "! Marcó: " + goleador.getNombre());
             }
         }
+    }
+
+    public String obtenerGoleadoresBreve() {
+        if (nombresGoleadores.isEmpty()) return "Sin goles";
+        return String.join(", ", nombresGoleadores);
     }
 
     private void gestionarTarjetas(Equipo e) {
@@ -137,7 +146,7 @@ public final class Partido {
             if (p instanceof Jugador j) {
                 if (Math.random() < 0.03) {
                     j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
-                    System.out.println("AMARILLA: " + j.getNombre() + " [" + e.getNombre() + "]");
+//                    System.out.println("AMARILLA: " + j.getNombre() + " [" + e.getNombre() + "]");
                 }
             }
         }

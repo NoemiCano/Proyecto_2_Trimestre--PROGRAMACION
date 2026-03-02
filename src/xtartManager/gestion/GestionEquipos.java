@@ -17,14 +17,14 @@ import java.util.Random;
 public class GestionEquipos {
 
 
-    protected static final List<Equipo> equipos = new ArrayList<>();
+    private static final List<Equipo> equipos = new ArrayList<>();
 
 
-    protected static final List<Equipo> equiposCopaDelRey = new ArrayList<>();
-    protected static final List<Equipo> equiposSuperCopa = new ArrayList<>();
-    protected static final List<Equipo> equiposLigaSpain = new ArrayList<>();
+    private static final List<Equipo> equiposCopaDelRey = new ArrayList<>();
+    private static final List<Equipo> equiposSuperCopa = new ArrayList<>();
+    private static final List<Equipo> equiposLigaSpain = new ArrayList<>();
 
-    protected static final List<Estadio> estadios = new ArrayList<>();
+    private static final List<Estadio> estadios = new ArrayList<>();
     private static final Random rnd = new Random();
 
     private static boolean cargadoEquipos = false;

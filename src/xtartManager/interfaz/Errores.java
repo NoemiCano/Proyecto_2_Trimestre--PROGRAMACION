@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Errores {
 
 
-    public static int comprobar(Scanner sc, String texto) {
+    private static int comprobar(Scanner sc, String texto) {
 
         while (true) {
             System.out.print(texto);
@@ -24,7 +24,7 @@ public class Errores {
         }
     }
 
-    public static int comprobar(Scanner sc, String texto, int min, int max) {
+    protected static int comprobar(Scanner sc, String texto, int min, int max) {
 
         while (true) {
             int valor = comprobar(sc, texto);
@@ -38,7 +38,7 @@ public class Errores {
         }
     }
 
-    public static double comprobarDouble(Scanner sc, String texto) {
+    private static double comprobarDouble(Scanner sc, String texto) {
         while (true) {
             System.out.print(texto);
 

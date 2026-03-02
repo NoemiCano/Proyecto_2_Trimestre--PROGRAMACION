@@ -19,8 +19,8 @@ public class Equipo {
     private int codigoPostal;
     private Estadio estadio;
     private LocalDate anioFundacion;
-//    private Entrenador entrenador;
-//    private List<Jugador> jugadores;
+//   private Entrenador entrenador;
+//   private List<Jugador> jugadores;
     private ClasificacionEquipos clasificacion;
     private List<Persona> staff;
     private List<Persona> plantillaOriginal;

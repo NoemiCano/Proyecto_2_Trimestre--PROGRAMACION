@@ -16,9 +16,9 @@ import java.util.List;
 public class GestionPersonal {
 
 
-    protected static final List<Jugador> jugadores = new ArrayList<>();
-    protected static final List<Entrenador> entrenadores = new ArrayList<>();
-    protected static final List<Arbitro> arbitros = new ArrayList<>();
+    private static final List<Jugador> jugadores = new ArrayList<>();
+    private static final List<Entrenador> entrenadores = new ArrayList<>();
+    private static final List<Arbitro> arbitros = new ArrayList<>();
 
     private static boolean cargado = false;
     private static boolean cargadoEntrenadores = false;

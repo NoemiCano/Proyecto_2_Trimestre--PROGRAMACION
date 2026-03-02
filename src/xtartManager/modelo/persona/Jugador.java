@@ -1,5 +1,6 @@
 package xtartManager.modelo.persona;
 
+import xtartManager.modelo.competicion.Liga;
 import xtartManager.modelo.equipos.Equipo;
 
 import java.time.LocalDate;

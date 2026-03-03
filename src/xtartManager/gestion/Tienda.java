@@ -38,6 +38,13 @@ public class Tienda {
 
     public static void nuevaTemporada() {
         jugadoresEnVenta.clear();
+
+        for (Jugador j : GestionPersonal.getJugadores()) {
+            if (j.getIdJugador() > 330) {
+                j.setEquipo(null);
+            }
+        }
+
         cargada = false;
         inicializarLeyendas();
     }

@@ -1,5 +1,6 @@
 package xtartManager.modelo.persona;
 
+import xtartManager.modelo.competicion.Liga;
 import xtartManager.modelo.equipos.Equipo;
 
 import java.time.LocalDate;
@@ -139,6 +140,12 @@ public class Jugador extends Persona {
                 this.media--;
             }
         }
+    }
+
+    public void reiniciarEstadisticas() {
+        golesMarcados = 0;
+        tarjetasAmarillas = 0;
+        tarjetasRojas = 0;
     }
 
     @Override

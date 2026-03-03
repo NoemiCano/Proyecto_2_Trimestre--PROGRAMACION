@@ -2,6 +2,8 @@ package xtartManager.interfaz;
 
 import xtartManager.gestion.GestionEquipos;
 import xtartManager.gestion.GestionPersonal;
+import xtartManager.gestion.CambiosJugadores;
+import xtartManager.gestion.GestionPersonal;
 import xtartManager.gestion.Tienda;
 import xtartManager.modelo.competicion.Liga;
 import xtartManager.modelo.equipos.Equipo;
@@ -19,6 +21,7 @@ import static xtartManager.interfaz.Inicio.tienda;
 public class MenuPrincipal {
 
     public static Scanner sc = new Scanner(System.in);
+    private List<CambiosJugadores> cambiosJugadores = new ArrayList<>();
 
     private Liga copaRey;
     private Liga supercopa;
@@ -149,12 +152,6 @@ public class MenuPrincipal {
                                     System.out.println("Liga finalizada.");
                                     menuLigas();
                                 }
-//                        liga.jugarCalendario();
-//                        // mostrar Resultados Totales Liga !!!!
-//                        if (liga.estaFinalizada()) {
-//                            System.out.println("Liga finalizada.");
-//                            menuLigas();
-//                        }
                     }
                     case 3 -> menuTienda(liga);
                     case 4 -> liga.verClasificacion();
@@ -256,8 +253,21 @@ public class MenuPrincipal {
 
         temporadaActual = calcularTemporada(temporadaActual);
 
-        //GestionEquipos.asignarJugadoresEquipos();
         Tienda.nuevaTemporada();
+
+        for (CambiosJugadores mov : cambiosJugadores) {
+
+            Jugador leyenda = GestionPersonal.buscarJugadorPorId(mov.getIdLeyenda());
+            Jugador original = GestionPersonal.buscarJugadorPorId(mov.getIdJugadorOriginal());
+            Equipo equipo = mov.getEquipo();
+
+            equipo.expulsarJugador(leyenda);
+            equipo.ficharJugador(original);
+            leyenda.setEquipo(null);
+
+    }
+        cambiosJugadores.clear();
+
         copaRey.reiniciarLiga();
         supercopa.reiniciarLiga();
         ligaSpain.reiniciarLiga();
@@ -399,6 +409,9 @@ public class MenuPrincipal {
                     System.out.println("- " + j.getNombre() + " " + j.getApellido() + " | Posición: " + j.getPosicion());
                 }
             }
+
+            cambiosJugadores.add(new CambiosJugadores(leyendaElegida.getIdJugador(),jugadorExpulsado.getIdJugador(),equipo));
+
         } else {
             System.out.println("No se pudo realizar la compra. Revisa los jugadores seleccionados.");
         }

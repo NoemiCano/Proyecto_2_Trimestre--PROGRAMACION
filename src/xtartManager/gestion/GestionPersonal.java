@@ -1,5 +1,10 @@
 package xtartManager.gestion;
 
+import xtartManager.modelo.persona.Posicion;
+import xtartManager.modelo.persona.TipoArbitro;
+import xtartManager.modelo.persona.Arbitro;
+import xtartManager.modelo.persona.Entrenador;
+import xtartManager.modelo.persona.Jugador;
 import xtartManager.modelo.equipos.Equipo;
 import xtartManager.modelo.persona.*;
 
@@ -13,9 +18,9 @@ import java.util.List;
 public class GestionPersonal {
 
 
-    protected static final List<Jugador> jugadores = new ArrayList<>();
-    protected static final List<Entrenador> entrenadores = new ArrayList<>();
-    protected static final List<Arbitro> arbitros = new ArrayList<>();
+    private static final List<Jugador> jugadores = new ArrayList<>();
+    private static final List<Entrenador> entrenadores = new ArrayList<>();
+    private static final List<Arbitro> arbitros = new ArrayList<>();
 
     private static boolean cargado = false;
     private static boolean cargadoEntrenadores = false;
@@ -141,6 +146,17 @@ public class GestionPersonal {
 
     public static List<Arbitro> getArbitros() {
         return arbitros;
+    }
+
+    public static Jugador buscarJugadorPorId(int id) {
+
+        for (Jugador j : jugadores) {
+            if (j.getIdJugador() == id) {
+                return j;
+            }
+        }
+
+        return null;
     }
 
     public static void realizarActoInaugural(List<Equipo> equipos, List<Arbitro> arbitros) {

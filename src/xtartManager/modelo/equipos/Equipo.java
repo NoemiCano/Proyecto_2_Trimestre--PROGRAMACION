@@ -21,6 +21,7 @@ public class Equipo {
     private LocalDate anioFundacion;
     private ClasificacionEquipos clasificacion;
     private List<Persona> staff;
+    private List<Persona> plantillaOriginal;
     private double presupuesto = 0;
 
     public Equipo() {
@@ -33,6 +34,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.plantillaOriginal = new ArrayList<>(staff);
         this.clasificacion = new ClasificacionEquipos();
     }
 
@@ -43,6 +45,7 @@ public class Equipo {
         this.codigoPostal = codigoPostal;
         this.anioFundacion = anioFundacion;
         this.staff = new ArrayList<>();
+        this.plantillaOriginal = new ArrayList<>(staff);
         this.clasificacion = new ClasificacionEquipos();
     }
 
@@ -241,7 +244,9 @@ public class Equipo {
         this.presupuesto += cantidad;
     }
 
-
+    public void reiniciarClasificacion() {
+        clasificacion.reiniciar();
+    }
 
     @Override
     public String toString() {

@@ -5,6 +5,8 @@ import xtartManager.clasificaciones.ClasificacionJugadores;
 import xtartManager.gestion.GestionPersonal;
 import xtartManager.interfaz.MenuPrincipal;
 import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.persona.Persona;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -151,8 +153,21 @@ public class Liga {
     }
 
     public void reiniciarLiga() {
-        jornadas.clear();
+
         jornadaActual = 0;
+
+        for (Equipo e : equipos) {
+            e.reiniciarClasificacion();
+
+            for (Persona p : e.getStaff()) {
+                if (p instanceof Jugador j) {
+                    j.reiniciarEstadisticas();
+                }
+            }
+        }
+
+        jornadas.clear();
+
     }
 
     @Override

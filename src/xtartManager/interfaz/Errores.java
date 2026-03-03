@@ -18,7 +18,7 @@ public class Errores {
                 return valor;
 
             } else {
-                System.out.println("Entrada inválida: introduce un número entero.");
+                System.out.println(Colores.ROJO + "Entrada inválida: introduce un número entero." + Colores.RESET);
                 sc.nextLine();
             }
         }
@@ -31,7 +31,7 @@ public class Errores {
 
             if (valor < min || valor > max) {
 
-                System.out.println("Valor fuera de rango. Debe estar entre " + min + " y " + max + ".");
+                System.out.println(Colores.ROJO + "Valor fuera de rango. Debe estar entre " + min + " y " + max + "." + Colores.RESET);
             } else {
                 return valor;
             }
@@ -49,7 +49,7 @@ public class Errores {
                 return valor;
 
             } else {
-                System.out.println("Entrada inválida: introduce un número (puede tener decimales).");
+                System.out.println(Colores.ROJO + "Entrada inválida: introduce un número (puede tener decimales)." + Colores.RESET);
                 sc.nextLine();
             }
         }
@@ -61,7 +61,7 @@ public class Errores {
 
             if (valor < min || valor > max) {
 
-                System.out.println("Valor fuera de rango. Debe estar entre " + min + " y " + max + ".");
+                System.out.println(Colores.ROJO + "Valor fuera de rango. Debe estar entre " + min + " y " + max + "." + Colores.RESET);
 
             } else {
                 return valor;
@@ -77,7 +77,7 @@ public class Errores {
 
             if (line.trim().isEmpty()) {
 
-                System.out.println("Entrada vacía. Introduce algún texto.");
+                System.out.println(Colores.ROJO + "Entrada vacía. Introduce algún texto." + Colores.RESET);
 
             } else {
                 return line;

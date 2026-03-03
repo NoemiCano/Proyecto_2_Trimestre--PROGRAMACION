@@ -1,5 +1,6 @@
 package xtartManager.gestion;
 
+import xtartManager.interfaz.Colores;
 import xtartManager.modelo.persona.Posicion;
 import xtartManager.modelo.persona.TipoArbitro;
 import xtartManager.modelo.persona.Arbitro;
@@ -162,9 +163,9 @@ public class GestionPersonal {
     public static void realizarActoInaugural(List<Equipo> equipos, List<Arbitro> arbitros) {
         if (equipos == null || equipos.isEmpty() || arbitros == null || arbitros.isEmpty()) return;
 
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("       RUEDA DE PRENSA OFICIAL: INICIO DE TEMPORADA");
-        System.out.println("=".repeat(60));
+        System.out.println(Colores.VERDE + "\n" + "=".repeat(80) + Colores.RESET);
+        System.out.println(Colores.VERDE + "       RUEDA DE PRENSA OFICIAL: INICIO DE TEMPORADA" + Colores.RESET);
+        System.out.println(Colores.VERDE + "=".repeat(80) + Colores.RESET);
 
         List<Persona> protagonistas = new ArrayList<>();
         protagonistas.add(arbitros.get(0));
@@ -184,10 +185,7 @@ public class GestionPersonal {
             System.out.print("[" + rol + "] " + p.getNombre() + " " + p.getApellido() + ": ");
             p.hablar();
         }
-        System.out.println("=".repeat(60) + "\n");
+        System.out.println(Colores.VERDE + "=".repeat(80) + Colores.RESET + "\n");
     }
-
-
-
 
 }

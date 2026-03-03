@@ -1,5 +1,6 @@
 package xtartManager.gestion;
 
+import xtartManager.interfaz.Colores;
 import xtartManager.modelo.equipos.Equipo;
 import xtartManager.modelo.equipos.Estadio;
 import xtartManager.modelo.persona.Posicion;
@@ -155,9 +156,9 @@ public class GestionEquipos {
             equiposSuperCopa.add(equipos.get(idx++));
         }
 
-        System.out.println("Lista de equipos Liga Española creada (" + equiposLigaSpain.size() + " equipos).");
-        System.out.println("Lista de equipos Copa del Rey creada (" + equiposCopaDelRey.size() + " equipos).");
-        System.out.println("Lista de equipos Supercopa creada (" + equiposSuperCopa.size() + " equipos).");
+        System.out.println(Colores.VERDE + "Lista de equipos Liga Española creada (" + equiposLigaSpain.size() + " equipos)."+ Colores.RESET);
+        System.out.println(Colores.VERDE + "Lista de equipos Copa del Rey creada (" + equiposCopaDelRey.size() + " equipos)."+ Colores.RESET);
+        System.out.println(Colores.VERDE + "Lista de equipos Supercopa creada (" + equiposSuperCopa.size() + " equipos)."+ Colores.RESET);
 
         cargadasCompeticiones = true;
     }

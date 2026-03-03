@@ -1,5 +1,6 @@
 package xtartManager.clasificaciones;
 
+import xtartManager.interfaz.Colores;
 import xtartManager.modelo.equipos.Equipo;
 import xtartManager.modelo.persona.Jugador;
 import xtartManager.modelo.persona.Persona;
@@ -20,28 +21,38 @@ public class ClasificacionJugadores {
             }
         }
 
-        System.out.println("\n========= TOP 10 JUGADORES (MEDIA) =========");
+        System.out.println(Colores.AMARILLO + "\n========= TOP 10 JUGADORES (MEDIA) =========" + Colores.RESET);
         todosJugadores.sort((j1, j2) -> Integer.compare(j2.getMedia(), j1.getMedia()));
+
         for (int i = 0; i < Math.min(10, todosJugadores.size()); i++) {
             Jugador j = todosJugadores.get(i);
-            System.out.printf("%2d. %-20s | Media: %d | Equipo: %s%n",
+            System.out.printf("%2d. %-20s | Media: %d | Equipo: %-15s" + "%n",
                     (i + 1), j.getNombre() + " " + j.getApellido(), j.getMedia(), j.getEquipo().getNombre());
         }
 
-        System.out.println("\n========= TOP 3 GOLEADORES (PICHICHI) =========");
+        System.out.println(Colores.AZUL + "\n========= TOP 3 GOLEADORES (PICHICHI) =========" + Colores.RESET);
         todosJugadores.sort((j1, j2) -> Integer.compare(j2.getGolesMarcados(), j1.getGolesMarcados()));
-        for (int i = 0; i < Math.min(3, todosJugadores.size()); i++) {
-            Jugador j = todosJugadores.get(i);
-            System.out.printf("%d. %-20s | Goles: %d%n",
-                    (i + 1), j.getNombre()+ " " + j.getApellido(), j.getGolesMarcados());
+
+        if (todosJugadores.isEmpty() || todosJugadores.get(0).getGolesMarcados() == 0) {
+            System.out.println("Todavía no se han estrenado los marcadores.");
+        } else {
+            for (int i = 0; i < Math.min(3, todosJugadores.size()); i++) {
+                Jugador j = todosJugadores.get(i);
+                // CORRECCIÓN: El RESET va al final del formato %n, no sumado a j.getGolesMarcados()
+                System.out.printf("%d. %-20s | Goles: %d" + "%n",
+                        (i + 1), j.getNombre() + " " + j.getApellido(), j.getGolesMarcados());
+            }
         }
 
-        System.out.println("\n========= JUGADOR MÁS SANCIONADO =========");
+        System.out.println(Colores.ROJO + "\n========= JUGADOR MÁS SANCIONADO =========" + Colores.RESET);
         todosJugadores.sort((j1, j2) -> Integer.compare(j2.getTarjetasAmarillas(), j1.getTarjetasAmarillas()));
-        if (!todosJugadores.isEmpty()) {
+
+        if (!todosJugadores.isEmpty() && todosJugadores.get(0).getTarjetasAmarillas() > 0) {
             Jugador j = todosJugadores.get(0);
-            System.out.println("El jugador mas sancionado de la liga es: " + j.getNombre()+ " " + j.getApellido() +
+            System.out.println("El jugador más sancionado: " + j.getNombre() + " " + j.getApellido() +
                     " con " + j.getTarjetasAmarillas() + " amarillas.");
+        } else {
+            System.out.println("Competición limpia: ¡nadie tiene tarjetas!");
         }
     }
 }

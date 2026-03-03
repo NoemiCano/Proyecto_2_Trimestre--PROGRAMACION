@@ -1,5 +1,7 @@
 package xtartManager.modelo.competicion;
 
+import xtartManager.interfaz.Colores;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,23 +45,23 @@ public class Jornada {
 
     public void addPartido(Partido partido) {
         if (partido == null) {
-            System.out.println("Error: El partido no puede ser nulo.");
+            System.out.println(Colores.ROJO + "Error: El partido no puede ser nulo." + Colores.RESET);
             return;
         }
 
         if (this.partidos.size() < NUMERO_PARTIDOS) {
             this.partidos.add(partido);
         } else {
-            System.out.println("Error: Esta jornada ya tiene los 5 partidos permitidos.");
+            System.out.println(Colores.ROJO + "Error: Esta jornada ya tiene los 5 partidos permitidos." + Colores.RESET);
         }
 
     }
 
     public void mostrarResumenJornada(int numeroJornada) {
-        System.out.println("\n========= RESUMEN JORNADA " + numeroJornada + " =========");
+        System.out.println(Colores.VERDE + "\n========= RESUMEN JORNADA " + numeroJornada + " =========" + Colores.RESET);
 
-        System.out.printf("%-20s | %-7s | %-20s | %s%n", "LOCAL", "GOLES", "VISITANTE", "GOLEADOR");
-        System.out.println("-".repeat(95));
+        System.out.printf(Colores.VERDE + "%-20s | %-7s | %-20s | %s%n", "LOCAL", "GOLES", "VISITANTE", "GOLEADOR"+ Colores.RESET);
+        System.out.println(Colores.VERDE + "-".repeat(95)+ Colores.RESET);
 
         for (Partido p : this.partidos) {
             if (p.isJugado()) {
@@ -71,7 +73,7 @@ public class Jornada {
                         p.obtenerGoleadoresBreve());
             }
         }
-        System.out.println("-".repeat(95));
+        System.out.println(Colores.VERDE + "-".repeat(95)+ Colores.RESET);
     }
 
     @Override

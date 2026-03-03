@@ -23,14 +23,14 @@ public class Inicio {
 
 
 
-        System.out.println("Datos cargados correctamente.");
-        System.out.println("Jugadores: " + GestionPersonal.getJugadores().size());
-        System.out.println("Entrenadores: " + GestionPersonal.getEntrenadores().size());
-        System.out.println("Árbitros: " + GestionPersonal.getArbitros().size());
-        System.out.println("Estadios: " +GestionEquipos.getEstadios().size());
-        System.out.println("Equipos Liga Española: " + GestionEquipos.getEquiposLigaSpain().size());
-        System.out.println("Equipos Copa del Rey: " + GestionEquipos.getEquiposCopaDelRey().size());
-        System.out.println("Equipos Supercopa: " + GestionEquipos.getEquiposSuperCopa().size());
+        System.out.println(Colores.VERDE + "Datos cargados correctamente." + Colores.RESET);
+        System.out.println(Colores.AZUL + "Jugadores: " + GestionPersonal.getJugadores().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Entrenadores: " + GestionPersonal.getEntrenadores().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Árbitros: " + GestionPersonal.getArbitros().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Estadios: " +GestionEquipos.getEstadios().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Equipos Liga Española: " + GestionEquipos.getEquiposLigaSpain().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Equipos Copa del Rey: " + GestionEquipos.getEquiposCopaDelRey().size()+ Colores.RESET);
+        System.out.println(Colores.AZUL + "Equipos Supercopa: " + GestionEquipos.getEquiposSuperCopa().size()+ Colores.RESET);
 
 
     }
@@ -39,16 +39,16 @@ public class Inicio {
     public static void mostrarResumen() {
         for (Equipo eq : GestionEquipos.getEquipos()) {
             System.out.println("======================================");
-            System.out.println(eq);
+            System.out.println(Colores.VERDE + eq + Colores.RESET);
 
             if (eq.getEstadio() != null) {
-                System.out.println("Estadio: " + eq.getEstadio().getNombre() +
+                System.out.println(Colores.VERDE + "Estadio: " + eq.getEstadio().getNombre() +
                         " | Ciudad: " + eq.getEstadio().getCiudad() +
-                        " | Capacidad: " + eq.getEstadio().getCapacidadEstadio());
+                        " | Capacidad: " + eq.getEstadio().getCapacidadEstadio()+ Colores.RESET);
             }
 
             if (eq.getEntrenador() != null) {
-                System.out.println("Entrenador: " + eq.getEntrenador().getNombre() + " " + eq.getEntrenador().getApellido());
+                System.out.println(Colores.VERDE + "Entrenador: " + eq.getEntrenador().getNombre() + " " + eq.getEntrenador().getApellido()+ Colores.RESET);
             }
 
             System.out.println("Jugadores (" + eq.getJugadores().size() + "):");
@@ -66,7 +66,7 @@ public class Inicio {
     }
 
     public static void mostrarLeyendasTienda() {
-        System.out.println("=========== LEYENDAS EN TIENDA ===========");
+        System.out.println(Colores.VERDE + "=========== LEYENDAS EN TIENDA ===========" + Colores.RESET);
 
         if (tienda.getJugadoresEnVenta().isEmpty()) {
             System.out.println("No hay leyendas disponibles.");
@@ -93,7 +93,6 @@ public class Inicio {
 
         int i = 1;
         for (Equipo e : lista) {
-          
             System.out.println(i + ". " + e.getNombre());
             i++;
         }

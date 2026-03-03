@@ -41,7 +41,7 @@ public class MenuPrincipal {
         do {
             comprobarTemporada();
             System.out.println("\n======================================");
-            System.out.println("¡Bienvenido a Xtart Manager! ");
+            System.out.println(Colores.VERDE + Colores.NEGRITA + "¡Bienvenido a Xtart Manager! " + Colores.RESET);
             System.out.println("1. Ver Equipos y Jugadores. ");
             System.out.println("2. Jugar una Liga. ");
             System.out.println("3. Salir. ");
@@ -68,9 +68,9 @@ public class MenuPrincipal {
         do{
             comprobarTemporada();
             System.out.println("\n======================================");
-            System.out.println("1. Copa del Rey");
-            System.out.println("2. Supercopa");
-            System.out.println("3. Liga Española");
+            System.out.println(Colores.AMARILLO + "1. Copa del Rey"+ Colores.RESET);
+            System.out.println(Colores.AZUL + "2. Supercopa"+ Colores.RESET);
+            System.out.println(Colores.ROJO + "3. Liga Española"+ Colores.RESET);
             System.out.println("4. Volver al menú principal");
 
             opcion = Errores.comprobar(sc, "¿Qué deseas hacer?", 1, 4);
@@ -122,7 +122,7 @@ public class MenuPrincipal {
             do{
 
                 System.out.println("\n======================================");
-                System.out.println("¡Bienvenido a " + liga.getNombre() + " " + temporadaActual + ". ");
+                System.out.println(Colores.VERDE + "¡Bienvenido a " + liga.getNombre() + " " + temporadaActual + ". " + Colores.RESET);
                 System.out.println("1. Jugar la siguiente Jornada. ");
                 System.out.println("2. Jugar todo el calendario de " + liga.getNombre() + " " + temporadaActual);
                 System.out.println("3. Ir a la Tienda. ");
@@ -178,7 +178,7 @@ public class MenuPrincipal {
         do{
 
             System.out.println("\n======================================");
-            System.out.println("ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar a un jugador del equipo con la misma posición. ");
+            System.out.println(Colores.ROJO + "ADVERTENCIA: Te recordamos que al comprar una leyenda tendrás que expulsar a un jugador del equipo con la misma posición. " + Colores.RESET);
             System.out.println("1. Ver leyendas "); //que valgan 100 000
             System.out.println("2. Ver equipos de la " + liga.getNombre() + " " + temporadaActual + ". ");
             System.out.println("3. Comprar leyendas "); // con que equipo quieres comprar -- leyendas
@@ -191,7 +191,7 @@ public class MenuPrincipal {
                 case 2 -> verEquipos(liga);
                 case 3 -> comprarTienda(liga);
                 case 4 -> menuLigaOpciones(liga);
-                default -> System.out.println("Opción inválida, inténtalo de nuevo");
+                default -> System.out.println(Colores.ROJO + "Opción inválida, inténtalo de nuevo" + Colores.RESET);
             }
         }while (!salir);
 
@@ -299,7 +299,7 @@ public class MenuPrincipal {
 
         int opcion;
 
-        System.out.println("\n=========== EQUIPOS DE LA " + liga.getNombre() + " " + temporadaActual + " ===========");
+        System.out.println(Colores.VERDE + "\n=========== EQUIPOS DE LA " + liga.getNombre() + " " + temporadaActual + " ===========" + Colores.RESET);
 
         for (int i = 0; i < liga.getEquipos().size(); i++) {
             Equipo e = liga.getEquipos().get(i);
@@ -315,7 +315,7 @@ public class MenuPrincipal {
 
         Equipo equipoSeleccionado = liga.getEquipos().get(opcion - 1);
 
-        System.out.println("\n====== Plantilla de " + equipoSeleccionado.getNombre() + " ======");
+        System.out.println(Colores.VERDE + "\n====== Plantilla de " + equipoSeleccionado.getNombre() + " ======" + Colores.RESET);
 
         for (Persona p : equipoSeleccionado.getStaff()) {
             if (p instanceof Jugador j) {
@@ -342,7 +342,7 @@ public class MenuPrincipal {
         }
 
         if (equiposPresupuesto.isEmpty()) {
-            System.out.println("Ningún equipo tiene dinero suficiente para comprar leyendas.");
+            System.out.println(Colores.ROJO + "Ningún equipo tiene dinero suficiente para comprar leyendas." + Colores.RESET);
             return;
         }
         //endregion

@@ -64,6 +64,17 @@ Paquetes principales:
 - **`xtartManager.clasificaciones`**
     - Cálculo de clasificaciones (equipos/jugadores).
 
+- **` UML `**
+
+
+
+
+![UML.png](UML.png)
+
+
+
+
+
 ## Datos
 
 Los datos iniciales se leen desde ficheros `.txt` dentro de la carpeta `datos/`:

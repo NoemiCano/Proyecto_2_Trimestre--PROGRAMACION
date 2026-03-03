@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jornada {
-    //private int id_jornada;
-    //private Date fecha_inicio;
-    //private Date fecha_final;
     private int numeroJornada;
     private List<Partido> partidos;
     private static final int NUMERO_PARTIDOS = 5;

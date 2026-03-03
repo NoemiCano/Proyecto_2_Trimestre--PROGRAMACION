@@ -2,12 +2,14 @@ package xtartManager.modelo.competicion;
 
 import xtartManager.clasificaciones.ClasificacionEquipos;
 import xtartManager.clasificaciones.ClasificacionJugadores;
+import xtartManager.gestion.GestionPersonal;
 import xtartManager.interfaz.MenuPrincipal;
 import xtartManager.modelo.equipos.Equipo;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Liga {
     private String nombre;
@@ -45,6 +47,26 @@ public class Liga {
 
     public List<Equipo> getEquipos() {
         return equipos;
+    }
+
+    public List<Jornada> getJornadas() {
+        return jornadas;
+    }
+
+    public void setJornadas(List<Jornada> jornadas) {
+        this.jornadas = jornadas;
+    }
+
+    public void setEquipos(List<Equipo> equipos) {
+        this.equipos = equipos;
+    }
+
+    public int getJornadaActual() {
+        return jornadaActual;
+    }
+
+    public void setJornadaActual(int jornadaActual) {
+        this.jornadaActual = jornadaActual;
     }
 
     // endregion

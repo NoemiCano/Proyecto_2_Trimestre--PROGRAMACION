@@ -53,7 +53,7 @@ public class Arbitro extends Persona {
     }
 
     public void hablar(){
-        System.out.println("¡Suerte a ambos equipos!");
+        System.out.println("Espero que hoy veamos un juego limpio. ¡Suerte a ambos equipos!");
     }
 
     @Override

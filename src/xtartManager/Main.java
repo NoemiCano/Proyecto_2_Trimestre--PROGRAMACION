@@ -8,9 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         Inicio.iniciar();
-        Inicio.mostrarEquiposPorCompeticiones();
-        Inicio.mostrarResumen();
-        Inicio.mostrarLeyendasTienda();
 
         MenuPrincipal menuP = new MenuPrincipal();
         menuP.iniciarMenu();

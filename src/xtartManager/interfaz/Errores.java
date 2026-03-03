@@ -8,7 +8,7 @@ public class Errores {
     public static int comprobar(Scanner sc, String texto) {
 
         while (true) {
-            System.out.print(texto);
+            System.out.println(texto);
 
             if (sc.hasNextInt()) {
 
@@ -40,7 +40,7 @@ public class Errores {
 
     public static double comprobarDouble(Scanner sc, String texto) {
         while (true) {
-            System.out.print(texto);
+            System.out.println(texto);
 
             if (sc.hasNextDouble()) {
                 double valor = sc.nextDouble();
@@ -72,7 +72,7 @@ public class Errores {
     public static String comprobarString(Scanner sc, String texto) {
 
         while (true) {
-            System.out.print(texto);
+            System.out.println(texto);
             String line = sc.nextLine();
 
             if (line.trim().isEmpty()) {
@@ -87,7 +87,7 @@ public class Errores {
 
     public static String comprobarStringVacio(Scanner sc, String prompt) {
 
-        System.out.print(prompt);
+        System.out.println(prompt);
         return sc.nextLine();
     }
 

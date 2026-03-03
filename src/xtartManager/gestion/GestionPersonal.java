@@ -1,10 +1,7 @@
 package xtartManager.gestion;
 
-import xtartManager.modelo.persona.Posicion;
-import xtartManager.modelo.persona.TipoArbitro;
-import xtartManager.modelo.persona.Arbitro;
-import xtartManager.modelo.persona.Entrenador;
-import xtartManager.modelo.persona.Jugador;
+import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.persona.*;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -144,6 +141,34 @@ public class GestionPersonal {
 
     public static List<Arbitro> getArbitros() {
         return arbitros;
+    }
+
+    public static void realizarActoInaugural(List<Equipo> equipos, List<Arbitro> arbitros) {
+        if (equipos == null || equipos.isEmpty() || arbitros == null || arbitros.isEmpty()) return;
+
+        System.out.println("\n" + "=".repeat(60));
+        System.out.println("       RUEDA DE PRENSA OFICIAL: INICIO DE TEMPORADA");
+        System.out.println("=".repeat(60));
+
+        List<Persona> protagonistas = new ArrayList<>();
+        protagonistas.add(arbitros.get(0));
+        protagonistas.add(equipos.get(0).getEntrenador());
+
+        if (!equipos.get(0).getStaff().isEmpty()) {
+            for(Persona p : equipos.get(0).getStaff()){
+                if(p instanceof Jugador){
+                    protagonistas.add(p);
+                    break;
+                }
+            }
+        }
+
+        for (Persona p : protagonistas) {
+            String rol = p.getClass().getSimpleName().toUpperCase();
+            System.out.print("[" + rol + "] " + p.getNombre() + " " + p.getApellido() + ": ");
+            p.hablar();
+        }
+        System.out.println("=".repeat(60) + "\n");
     }
 
 

@@ -1,9 +1,11 @@
 package xtartManager.interfaz;
 
 import xtartManager.gestion.GestionEquipos;
+import xtartManager.gestion.GestionPersonal;
 import xtartManager.gestion.Tienda;
 import xtartManager.modelo.competicion.Liga;
 import xtartManager.modelo.equipos.Equipo;
+import xtartManager.modelo.persona.Entrenador;
 import xtartManager.modelo.persona.Jugador;
 import xtartManager.modelo.persona.Persona;
 import xtartManager.modelo.persona.Posicion;
@@ -128,6 +130,9 @@ public class MenuPrincipal {
 
                 switch (opcion) {
                     case 1 -> {
+                        if (liga.getJornadaActual() == 0) {
+                            GestionPersonal.realizarActoInaugural(liga.getEquipos(), GestionPersonal.getArbitros());
+                        }
                         liga.jugarJornada();
                         // mostrar Resultados Ultima Jornada !!!!
                         if (liga.estaFinalizada()) {
@@ -136,12 +141,20 @@ public class MenuPrincipal {
                         }
                     }
                     case 2 -> {
-                        liga.jugarCalendario();
-                        // mostrar Resultados Totales Liga !!!!
-                        if (liga.estaFinalizada()) {
-                            System.out.println("Liga finalizada.");
-                            menuLigas();
-                        }
+                                if (liga.getJornadaActual() == 0) {
+                                    GestionPersonal.realizarActoInaugural(liga.getEquipos(), GestionPersonal.getArbitros());
+                                }
+                                liga.jugarCalendario();
+                                if (liga.estaFinalizada()) {
+                                    System.out.println("Liga finalizada.");
+                                    menuLigas();
+                                }
+//                        liga.jugarCalendario();
+//                        // mostrar Resultados Totales Liga !!!!
+//                        if (liga.estaFinalizada()) {
+//                            System.out.println("Liga finalizada.");
+//                            menuLigas();
+//                        }
                     }
                     case 3 -> menuTienda(liga);
                     case 4 -> liga.verClasificacion();

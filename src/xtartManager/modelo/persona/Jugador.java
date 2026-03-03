@@ -119,7 +119,7 @@ public class Jugador extends Persona {
     }
 
     public void hablar(){
-        System.out.println("Hola,gracias por ficharme");
+        System.out.println("Como capitán, prometo que nos dejaremos la piel en el campo. ¡Ánimo!");
     }
 
     public void sumarGoles(int cantidad) {

@@ -19,8 +19,6 @@ public class Equipo {
     private int codigoPostal;
     private Estadio estadio;
     private LocalDate anioFundacion;
-//    private Entrenador entrenador;
-//    private List<Jugador> jugadores;
     private ClasificacionEquipos clasificacion;
     private List<Persona> staff;
     private double presupuesto = 0;
@@ -242,6 +240,8 @@ public class Equipo {
     public void ingresarDinero(double cantidad){
         this.presupuesto += cantidad;
     }
+
+
 
     @Override
     public String toString() {

@@ -26,7 +26,6 @@ public class Entrenador extends Persona {
         this.equipo = equipo;
     }
 
-
     public int getIdEntrenador() {
         return idEntrenador;
     }
@@ -52,7 +51,7 @@ public class Entrenador extends Persona {
     }
 
     public void hablar(){
-        System.out.println("¡Vamos equipo!");
+        System.out.println("Mis jugadores han entrenado duro esta semana. ¡Vamos equipo!");
     }
 
     @Override

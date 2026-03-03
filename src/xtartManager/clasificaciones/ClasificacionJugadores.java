@@ -28,7 +28,6 @@ public class ClasificacionJugadores {
                     (i + 1), j.getNombre() + " " + j.getApellido(), j.getMedia(), j.getEquipo().getNombre());
         }
 
-        // --- TOP 3 GOLEADORES (PICHICHI) ---
         System.out.println("\n========= TOP 3 GOLEADORES (PICHICHI) =========");
         todosJugadores.sort((j1, j2) -> Integer.compare(j2.getGolesMarcados(), j1.getGolesMarcados()));
         for (int i = 0; i < Math.min(3, todosJugadores.size()); i++) {
@@ -37,7 +36,6 @@ public class ClasificacionJugadores {
                     (i + 1), j.getNombre()+ " " + j.getApellido(), j.getGolesMarcados());
         }
 
-        // --- JUGADOR CON MÁS TARJETAS ---
         System.out.println("\n========= JUGADOR MÁS SANCIONADO =========");
         todosJugadores.sort((j1, j2) -> Integer.compare(j2.getTarjetasAmarillas(), j1.getTarjetasAmarillas()));
         if (!todosJugadores.isEmpty()) {

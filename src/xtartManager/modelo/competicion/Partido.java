@@ -70,6 +70,14 @@ public final class Partido {
         this.jugado = jugado;
     }
 
+    public List<String> getNombresGoleadores() {
+        return nombresGoleadores;
+    }
+
+    public void setNombresGoleadores(List<String> nombresGoleadores) {
+        this.nombresGoleadores = nombresGoleadores;
+    }
+
     // endregion
 
     private int generarGoles(double fuerzaAtaque){
@@ -105,7 +113,6 @@ public final class Partido {
             if (p instanceof Jugador j) {
                 if (Math.random() < 0.03) {
                     j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
-//                    System.out.println("AMARILLA para " + j.getNombre() + " (" + visitante.getNombre() + ")");
                 }
             }
         }
@@ -116,13 +123,6 @@ public final class Partido {
 
         premiosYMedia(local, golesLocal, golesVisitante);
         premiosYMedia(visitante, golesVisitante, golesLocal);
-
-        // Mostrar resultado por consola
-//        System.out.println("\n--- FINAL DEL PARTIDO ---");
-//        System.out.println(local.getNombre() + " " + golesLocal + " - " + golesVisitante + " " + visitante.getNombre());
-//        System.out.println("--------------------------\n");
-
-
     }
 
     private void golesIndividuales(Equipo e, int goles) {
@@ -131,7 +131,6 @@ public final class Partido {
             if (goleador != null) {
                 goleador.sumarGoles(1);
                 nombresGoleadores.add(goleador.getNombre() + " (" + e.getNombre() + ")");
-//                System.out.println("¡GOL del " + e.getNombre() + "! Marcó: " + goleador.getNombre());
             }
         }
     }
@@ -146,7 +145,6 @@ public final class Partido {
             if (p instanceof Jugador j) {
                 if (Math.random() < 0.03) {
                     j.setTarjetasAmarillas(j.getTarjetasAmarillas() + 1);
-//                    System.out.println("AMARILLA: " + j.getNombre() + " [" + e.getNombre() + "]");
                 }
             }
         }
@@ -155,11 +153,9 @@ public final class Partido {
     private void premiosYMedia(Equipo e, int misGoles, int golesRival) {
         int puntos = CalculadoraFutbol.calcularPuntos(misGoles, golesRival);
 
-        // Dinero
         if (puntos == 3) e.ingresarDinero(20000);
         else if (puntos == 1) e.ingresarDinero(10000);
 
-        // Actualizar media de los jugadores
         for (Persona p : e.getStaff()) {
             if (p instanceof Jugador j) {
                 j.actualizarMediaSegunResultado(puntos);

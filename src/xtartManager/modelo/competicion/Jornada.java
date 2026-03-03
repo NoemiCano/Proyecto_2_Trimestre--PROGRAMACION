@@ -37,6 +37,8 @@ public class Jornada {
         this.partidos = partidos;
     }
 
+
+
     // endregion
 
     public void addPartido(Partido partido) {
@@ -59,7 +61,6 @@ public class Jornada {
         System.out.printf("%-20s | %-7s | %-20s | %s%n", "LOCAL", "GOLES", "VISITANTE", "GOLEADOR");
         System.out.println("-".repeat(95));
 
-        // Como estamos en la clase Jornada, usamos "this.partidos" (o como se llame tu lista de partidos)
         for (Partido p : this.partidos) {
             if (p.isJugado()) {
                 String marcador = String.format("%2d - %-2d", p.getGolesLocal(), p.getGolesVisitante());

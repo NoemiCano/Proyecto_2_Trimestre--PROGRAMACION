@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/toris/Documents/DAM/1º DAM/Proyecto Intermodular/PROYECTO 2EV/PROGRAMACION/Proyecto_2_Trimestre--PROGRAMACION/src</OriginalElement>
+  <nodes>
+    <node x="1598.5" y="-14.0">xtartManager.clasificaciones.ClasificacionEquipos</node>
+    <node x="-115.0" y="620.0">xtartManager.gestion.Tienda</node>
+    <node x="900.0" y="865.5">xtartManager.interfaz.Errores</node>
+    <node x="1974.0" y="257.0">xtartManager.modelo.equipos.Estadio</node>
+    <node x="172.0" y="632.0">xtartManager.interfaz.Inicio</node>
+    <node x="2270.0" y="245.0">xtartManager.gestion.GestionEquipos</node>
+    <node x="829.0" y="317.0">xtartManager.modelo.persona.Persona</node>
+    <node x="1338.5" y="991.0">xtartManager.Main</node>
+    <node x="929.5" y="608.0">xtartManager.gestion.CambiosJugadores</node>
+    <node x="1093.0" y="1039.0">xtartManager.clasificaciones.ClasificacionJugadores</node>
+    <node x="51.0" y="305.0">xtartManager.modelo.persona.Arbitro</node>
+    <node x="335.0" y="572.0">xtartManager.gestion.GestionPersonal</node>
+    <node x="1161.5" y="584.0">xtartManager.modelo.competicion.Liga</node>
+    <node x="434.0" y="233.0">xtartManager.modelo.persona.Jugador</node>
+    <node x="670.0" y="305.0">xtartManager.modelo.persona.Posicion</node>
+    <node x="1474.5" y="608.0">xtartManager.modelo.competicion.Jornada</node>
+    <node x="1077.0" y="317.0">xtartManager.modelo.persona.Entrenador</node>
+    <node x="680.0" y="865.5">xtartManager.clasificaciones.CalculadoraFutbol</node>
+    <node x="1300.0" y="269.0">xtartManager.modelo.competicion.Partido</node>
+    <node x="264.0" y="317.0">xtartManager.modelo.persona.TipoArbitro</node>
+    <node x="1037.0" y="788.0">xtartManager.interfaz.MenuPrincipal</node>
+    <node x="1686.0" y="233.0">xtartManager.modelo.equipos.Equipo</node>
+    <node x="1123.0" y="1087.0">xtartManager.interfaz.Colores</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="xtartManager.modelo.equipos.Equipo" target="xtartManager.modelo.persona.Persona" relationship="TO_MANY">
+      <point x="-129.0" y="-0.0" />
+      <point x="1631.0" y="372.5" />
+      <point x="1631.0" y="249.0" />
+      <point x="938.0" y="249.0" />
+      <point x="0.0" y="-55.5" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionEquipos" target="xtartManager.modelo.equipos.Estadio" relationship="TO_MANY">
+      <point x="-130.0" y="63.75" />
+      <point x="2220.0" y="436.25" />
+      <point x="2220.0" y="314.75" />
+      <point x="103.0" y="-57.75" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Entrenador" relationship="CREATE">
+      <point x="61.5" y="-91.5" />
+      <point x="519.5" y="542.0" />
+      <point x="1206.75" y="542.0" />
+      <point x="43.25" y="55.5" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Jugador" relationship="CREATE">
+      <point x="61.5" y="-91.5" />
+      <point x="0.0" y="139.5" />
+    </edge>
+    <edge source="xtartManager.interfaz.MenuPrincipal" target="xtartManager.gestion.CambiosJugadores" relationship="TO_MANY">
+      <point x="82.5" y="-91.5" />
+      <point x="1284.5" y="763.0" />
+      <point x="914.5" y="763.0" />
+      <point x="914.5" y="593.0" />
+      <point x="1030.5" y="593.0" />
+      <point x="0.0" y="-55.5" />
+    </edge>
+    <edge source="xtartManager.interfaz.MenuPrincipal" target="xtartManager.modelo.competicion.Liga" relationship="CREATE">
+      <point x="-82.5" y="-91.5" />
+      <point x="1119.5" y="753.0" />
+      <point x="1374.5" y="753.0" />
+      <point x="1374.5" y="703.25" />
+      <point x="99.0" y="39.75" />
+    </edge>
+    <edge source="xtartManager.modelo.equipos.Equipo" target="xtartManager.clasificaciones.ClasificacionEquipos" relationship="CREATE">
+      <point x="0.0" y="-139.5" />
+      <point x="1815.0" y="208.0" />
+      <point x="1756.0" y="208.0" />
+      <point x="52.5" y="103.5" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionEquipos" target="xtartManager.modelo.equipos.Equipo" relationship="TO_MANY">
+      <point x="-130.0" y="63.75" />
+      <point x="2255.0" y="436.25" />
+      <point x="2255.0" y="532.0" />
+      <point x="1651.0" y="532.0" />
+      <point x="1651.0" y="372.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Liga" target="xtartManager.modelo.competicion.Jornada" relationship="CREATE">
+      <point x="99.0" y="39.75" />
+      <point x="1459.5" y="703.25" />
+      <point x="1459.5" y="663.5" />
+      <point x="-96.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Jugador" target="xtartManager.modelo.persona.Persona" relationship="GENERALIZATION">
+      <point x="0.0" y="-139.5" />
+      <point x="519.5" y="223.0" />
+      <point x="814.0" y="223.0" />
+      <point x="814.0" y="372.5" />
+      <point x="-109.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Arbitro" relationship="TO_MANY">
+      <point x="-61.5" y="-91.5" />
+      <point x="396.5" y="532.0" />
+      <point x="234.0" y="532.0" />
+      <point x="234.0" y="372.5" />
+      <point x="84.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Entrenador" target="xtartManager.modelo.equipos.Equipo" relationship="TO_ONE">
+      <point x="86.5" y="-0.0" />
+      <point x="1285.0" y="372.5" />
+      <point x="1285.0" y="259.0" />
+      <point x="1611.0" y="259.0" />
+      <point x="1611.0" y="372.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Jugador" target="xtartManager.modelo.equipos.Equipo" relationship="TO_ONE">
+      <point x="85.5" y="-0.0" />
+      <point x="640.0" y="372.5" />
+      <point x="640.0" y="203.0" />
+      <point x="1651.0" y="203.0" />
+      <point x="1651.0" y="372.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Liga" target="xtartManager.modelo.competicion.Partido" relationship="CREATE">
+      <point x="99.0" y="39.75" />
+      <point x="1414.5" y="703.25" />
+      <point x="1414.5" y="583.0" />
+      <point x="1428.0" y="583.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="xtartManager.interfaz.MenuPrincipal" target="xtartManager.modelo.competicion.Liga" relationship="TO_ONE">
+      <point x="82.5" y="-91.5" />
+      <point x="1284.5" y="763.0" />
+      <point x="1394.5" y="763.0" />
+      <point x="1394.5" y="623.75" />
+      <point x="99.0" y="-39.75" />
+    </edge>
+    <edge source="xtartManager.interfaz.Inicio" target="xtartManager.gestion.Tienda" relationship="TO_ONE">
+      <point x="0.0" y="-31.5" />
+      <point x="238.5" y="605.0" />
+      <point x="13.5" y="605.0" />
+      <point x="0.0" y="-43.5" />
+    </edge>
+    <edge source="xtartManager.Main" target="xtartManager.interfaz.MenuPrincipal" relationship="CREATE">
+      <point x="0.0" y="-14.0" />
+      <point x="1382.0" y="773.0" />
+      <point x="1119.5" y="773.0" />
+      <point x="-82.5" y="-91.5" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Jornada" target="xtartManager.modelo.competicion.Partido" relationship="TO_MANY">
+      <point x="0.0" y="-55.5" />
+      <point x="1571.0" y="372.5" />
+      <point x="128.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Jugador" relationship="TO_MANY">
+      <point x="-61.5" y="-91.5" />
+      <point x="396.5" y="562.0" />
+      <point x="417.5" y="562.0" />
+      <point x="417.5" y="522.0" />
+      <point x="620.0" y="522.0" />
+      <point x="620.0" y="372.5" />
+      <point x="85.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Arbitro" target="xtartManager.modelo.persona.Persona" relationship="GENERALIZATION">
+      <point x="0.0" y="-67.5" />
+      <point x="135.0" y="213.0" />
+      <point x="814.0" y="213.0" />
+      <point x="814.0" y="372.5" />
+      <point x="-109.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Entrenador" relationship="TO_MANY">
+      <point x="-61.5" y="-91.5" />
+      <point x="396.5" y="532.0" />
+      <point x="1265.0" y="532.0" />
+      <point x="1265.0" y="372.5" />
+      <point x="86.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.equipos.Equipo" target="xtartManager.clasificaciones.ClasificacionEquipos" relationship="TO_ONE">
+      <point x="-129.0" y="-0.0" />
+      <point x="1651.0" y="372.5" />
+      <point x="-52.5" y="103.5" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Liga" target="xtartManager.modelo.competicion.Jornada" relationship="TO_MANY">
+      <point x="99.0" y="-39.75" />
+      <point x="1434.5" y="623.75" />
+      <point x="1434.5" y="593.0" />
+      <point x="1571.0" y="593.0" />
+      <point x="0.0" y="-55.5" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionPersonal" target="xtartManager.modelo.persona.Arbitro" relationship="CREATE">
+      <point x="61.5" y="-91.5" />
+      <point x="519.5" y="542.0" />
+      <point x="135.0" y="542.0" />
+      <point x="0.0" y="67.5" />
+    </edge>
+    <edge source="xtartManager.interfaz.Inicio" target="xtartManager.gestion.Tienda" relationship="CREATE">
+      <point x="-66.5" y="-0.0" />
+      <point x="128.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Jugador" target="xtartManager.modelo.persona.Posicion" relationship="TO_ONE">
+      <point x="85.5" y="-0.0" />
+      <point x="-64.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.CambiosJugadores" target="xtartManager.modelo.equipos.Equipo" relationship="TO_ONE">
+      <point x="0.0" y="-55.5" />
+      <point x="1030.5" y="552.0" />
+      <point x="1415.5" y="552.0" />
+      <point x="1415.5" y="486.0" />
+      <point x="1651.0" y="486.0" />
+      <point x="1651.0" y="372.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Partido" target="xtartManager.modelo.equipos.Equipo" relationship="TO_ONE">
+      <point x="128.0" y="-0.0" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Entrenador" target="xtartManager.modelo.persona.Persona" relationship="GENERALIZATION">
+      <point x="-43.25" y="55.5" />
+      <point x="1120.25" y="450.0" />
+      <point x="814.0" y="450.0" />
+      <point x="814.0" y="372.5" />
+      <point x="-109.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionEquipos" target="xtartManager.modelo.equipos.Equipo" relationship="CREATE">
+      <point x="-130.0" y="-63.75" />
+      <point x="2255.0" y="308.75" />
+      <point x="2255.0" y="218.0" />
+      <point x="1815.0" y="218.0" />
+      <point x="0.0" y="-139.5" />
+    </edge>
+    <edge source="xtartManager.gestion.GestionEquipos" target="xtartManager.modelo.equipos.Estadio" relationship="CREATE">
+      <point x="-130.0" y="-63.75" />
+      <point x="2230.0" y="308.75" />
+      <point x="2230.0" y="430.25" />
+      <point x="103.0" y="57.75" />
+    </edge>
+    <edge source="xtartManager.modelo.equipos.Equipo" target="xtartManager.modelo.equipos.Estadio" relationship="TO_ONE">
+      <point x="-129.0" y="-0.0" />
+      <point x="1671.0" y="372.5" />
+      <point x="1671.0" y="522.0" />
+      <point x="2195.0" y="522.0" />
+      <point x="2195.0" y="314.75" />
+      <point x="103.0" y="-57.75" />
+    </edge>
+    <edge source="xtartManager.modelo.persona.Arbitro" target="xtartManager.modelo.persona.TipoArbitro" relationship="TO_ONE">
+      <point x="84.0" y="-0.0" />
+      <point x="-70.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.gestion.Tienda" target="xtartManager.modelo.persona.Jugador" relationship="TO_MANY">
+      <point x="0.0" y="-43.5" />
+      <point x="13.5" y="552.0" />
+      <point x="417.5" y="552.0" />
+      <point x="417.5" y="522.0" />
+      <point x="620.0" y="522.0" />
+      <point x="620.0" y="372.5" />
+      <point x="85.5" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.modelo.competicion.Liga" target="xtartManager.modelo.equipos.Equipo" relationship="TO_MANY">
+      <point x="99.0" y="-39.75" />
+      <point x="1394.5" y="623.75" />
+      <point x="1394.5" y="552.0" />
+      <point x="1415.5" y="552.0" />
+      <point x="1415.5" y="486.0" />
+      <point x="1651.0" y="486.0" />
+      <point x="1651.0" y="372.5" />
+      <point x="-129.0" y="-0.0" />
+    </edge>
+    <edge source="xtartManager.interfaz.MenuPrincipal" target="xtartManager.gestion.CambiosJugadores" relationship="CREATE">
+      <point x="-82.5" y="-91.5" />
+      <point x="1119.5" y="753.0" />
+      <point x="1030.5" y="753.0" />
+      <point x="0.0" y="55.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.44390243902439025" showDependencies="true" x="1217.5" y="662.554945054945" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
